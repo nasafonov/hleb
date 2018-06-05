@@ -24,7 +24,7 @@ namespace Hleb
         {
             InitializeComponent();
             // йоуууууууу
-
+            //ioyyyyy
         }
     }
 }
