@@ -23,6 +23,8 @@ namespace Hleb
         public MainWindow()
         {
             InitializeComponent();
+            // йоуууууууу
+
         }
     }
 }
