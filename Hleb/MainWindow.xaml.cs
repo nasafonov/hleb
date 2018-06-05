@@ -25,6 +25,7 @@ namespace Hleb
             InitializeComponent();
             // йоуууууууу
             //ioyyyyy
+            //пидоры
         }
     }
 }
