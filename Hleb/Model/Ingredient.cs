@@ -9,5 +9,6 @@ namespace Hleb.Model
     class Ingredient
     {
         public string Name { get; set; }
+        public List<Recipe> Recipes { get; set; }
     }
 }

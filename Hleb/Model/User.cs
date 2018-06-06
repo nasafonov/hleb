@@ -11,6 +11,6 @@ namespace Hleb.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public Notebook Favourite { get; set; }
+        public List<Notebook> Favourite { get; set; }
     }
 }

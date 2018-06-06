@@ -9,5 +9,6 @@ namespace Hleb.Model
     class Item
     {
         public Recipe SelectedRecipe { get; set; }
+        public Catalog Catalog { get; set; }
     }
 }
