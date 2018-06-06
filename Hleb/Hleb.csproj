@@ -68,6 +68,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Catalog.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Ingredient.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Notebook.cs" />
+    <Compile Include="Model\Recipe.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
