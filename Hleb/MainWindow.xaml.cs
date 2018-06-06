@@ -24,5 +24,21 @@ namespace Hleb
         {
             InitializeComponent();           
         }
+
+        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            RegistrationWindow mw = new RegistrationWindow();
+            mw.Show();
+            Close();
+        }
+
+        //private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Hide();
+        //    UserWindow mw = new UserWindow();
+        //    mw.Show();
+        //    Close();
+        //}
     }
 }
