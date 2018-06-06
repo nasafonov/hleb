@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Food" Height="500" Width="700">
+    <Grid Background="#FFCDBF96">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" Height="110">
+            </Image>
+            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova" ><Run Text="Email"/></TextBlock>
+            <TextBox Name="textBoxLogin" VerticalAlignment="Center" FontSize="22" Width="300" Height="50"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova Cond"><Run Text="Password"/></TextBlock>
+            <PasswordBox  Name="textBoxPassword" VerticalAlignment="Center" Width="300" Height="50" FontSize="22"/>
+            <StackPanel Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="300" >
+                <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Margin="5" Height="50"  FontSize="22" FontFamily="Rockwell Nova" />
+                <TextBlock Text="Or" VerticalAlignment="Center" FontSize="20" FontFamily="Rockwell Nova" />
+                <Button Content="Registration" Width="135" Margin="5" Height="50"  FontSize="20" FontFamily="Rockwell Nova" />
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
