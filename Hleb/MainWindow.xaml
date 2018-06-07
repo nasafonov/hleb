@@ -15,7 +15,7 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova Cond"><Run Text="Password"/></TextBlock>
             <PasswordBox  Name="textBoxPassword" VerticalAlignment="Center" Width="300" Height="50" FontSize="22"/>
             <StackPanel Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="300" >
-                <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Margin="5" Height="50"  FontSize="22" FontFamily="Rockwell Nova"  />
+                <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Margin="5" Height="50"  FontSize="22" FontFamily="Rockwell Nova" Click="ButtonLogin_Click" />
                 <TextBlock Text="Or" VerticalAlignment="Center" FontSize="20" FontFamily="Rockwell Nova" />
                 <Button Content="Registration" Width="135" Margin="5" Height="50"  FontSize="20" FontFamily="Rockwell Nova" Click="ButtonRegistration_Click" />
             </StackPanel>

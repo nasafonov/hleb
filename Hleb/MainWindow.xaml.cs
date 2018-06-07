@@ -33,12 +33,12 @@ namespace Hleb
             Close();
         }
 
-        //private void ButtonLogin_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Hide();
-        //    UserWindow mw = new UserWindow();
-        //    mw.Show();
-        //    Close();
-        //}
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            UserWindow mw = new UserWindow();
+            mw.Show();
+            Close();
+        }
     }
 }

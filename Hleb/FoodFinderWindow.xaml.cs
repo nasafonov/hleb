@@ -15,30 +15,31 @@ using System.Windows.Shapes;
 namespace Hleb
 {
     /// <summary>
-    /// Логика взаимодействия для RegistrationWindow.xaml
+    /// Логика взаимодействия для FoodFinderWindow.xaml
     /// </summary>
-    public partial class RegistrationWindow : Window
+    public partial class FoodFinderWindow : Window
     {
-        public RegistrationWindow()
+        public FoodFinderWindow()
         {
             InitializeComponent();
         }
-
-        private void ButtonHome_Click(object sender, RoutedEventArgs e)
+        private void ButtonBread2_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            UserWindow us = new UserWindow();
+            us.Show();
             Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("you're sucsessfully loged in");
-            Hide();
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            Close();
+            //Hide();
+            //ReceiptWindow rr = new ReceiptWindow();
+            //rr.Show();
+            //Close();
+            st.Visibility = Visibility.Collapsed;
+            st.Visibility = Visibility.Visible;
+
         }
     }
 }

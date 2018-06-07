@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="RegistrationWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Registration" Height="530" Width="700">
+    <Grid Background="#FFCDBF96">
+        <Button Name="ButtonHome" BorderThickness="0" Margin="9" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonHome_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Images\Home.png"/>
+            </Button.Background>
+        </Button>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+
+            <TextBlock HorizontalAlignment="Center"  Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Name</TextBlock>
+            <TextBox Name="textBoxname" Width="400" Height="50" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Center" Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Surname</TextBlock>
+            <TextBox Name="textBoxname2" Width="400" Height="50" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Center"  Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Email</TextBlock>
+            <TextBox Name="textBoxemail" Width="400" Height="50" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Center" Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Password</TextBlock>
+            <PasswordBox Name="textBoxpassword" Width="400" Height="50" FontSize="36"/>
+
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Width="360">
+                <Button Content="Registration" Width="200" Margin="5" Height="60"  FontSize="34" Click="Button_Click" />
+                <TextBlock Text="Or" VerticalAlignment="Center" FontSize="30" />
+                <Button Name="ButtonVK" BorderThickness="0" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="9" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="Images\VK.png" />
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Window>
