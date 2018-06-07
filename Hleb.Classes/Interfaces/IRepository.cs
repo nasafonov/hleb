@@ -12,6 +12,7 @@ namespace Hleb.Classes.Interfaces
     {
         IEnumerable<Recipe> Recipes { get; }
         IEnumerable<Favourite> Favourites { get; }
+        User AuthorizedUser { get; }
 
         bool Authorize(string login, string password);
         bool RegisterUser(string name, string email, string login, string password);

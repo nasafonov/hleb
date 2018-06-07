@@ -41,14 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factory.cs" />
+    <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Model\Favourite.cs" />
     <Compile Include="Repository\DbRepository.cs" />
-    <Compile Include="Model\Catalog.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Ingredient.cs" />
-    <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\Notebook.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

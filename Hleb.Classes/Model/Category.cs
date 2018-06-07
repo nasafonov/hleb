@@ -8,9 +8,9 @@ namespace Hleb.Model
 {
     public class Category
     {
+        public int Id { get; set; }
         public string Type { get; set; } // суп, закуска, паста, пицца
         public string Dish { get; set; } // суп - борщ, щи  пицца - маргарита, 4 сыра
-        public List<Recipe> Recipes { get; set; }
 
     }
 }
