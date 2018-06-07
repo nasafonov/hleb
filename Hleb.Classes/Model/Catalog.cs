@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hleb.Model
 {
-    class Catalog
+    public class Catalog
     {
         public List<Item> Items { get; set; }
     }

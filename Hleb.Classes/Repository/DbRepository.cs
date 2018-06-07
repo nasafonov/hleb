@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hleb.Model
+namespace Hleb.Classes
 {
-    class Item
+    public class DbRepository
     {
-        public Recipe SelectedRecipe { get; set; }
-        public Catalog Catalog { get; set; }
     }
 }

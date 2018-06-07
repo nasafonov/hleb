@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hleb.Model
 {
-    class User
+    public class Ingredient
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; }
-        public List<Notebook> Favourite { get; set; }
+        public List<Recipe> Recipes { get; set; }
     }
 }

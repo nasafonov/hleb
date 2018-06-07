@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hleb.Model
 {
-    class Category
+    public class Category
     {
         public string Type { get; set; } // суп, закуска, паста, пицца
         public string Dish { get; set; } // суп - борщ, щи  пицца - маргарита, 4 сыра
