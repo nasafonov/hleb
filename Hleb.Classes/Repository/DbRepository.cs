@@ -15,6 +15,8 @@ namespace Hleb.Classes
         public IEnumerable<Favourite> Favourites { get; }
         public User AuthorizedUser { get; }
 
+
+
         public bool RegisterUser(string name, string email,  string password)
         {
             var user = new User()

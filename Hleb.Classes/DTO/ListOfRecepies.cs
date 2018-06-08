@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hleb.Classes.DTO
 {
-    class ListOfRecepies
+    public class ListOfRecepies
     {
         public List<Recipe> Recipes { get; set; }
     }

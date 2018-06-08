@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Hleb.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Hleb.Classes.DTO
 {
-    class API
+   public class API
     {
         static string BuildUrl(string baseUrl, IDictionary<string, List<string>> parameters)
         {
@@ -61,7 +62,7 @@ namespace Hleb.Classes.DTO
             }
             return sb.ToString();
         }
-        static string MakeQueryforRecepies(List<string> ingridients)
+       public static string MakeQueryforRecepies(List<string> ingridients)
         {
             // Simple option
             // return $"http://food2fork.com/api/search";
@@ -88,7 +89,7 @@ namespace Hleb.Classes.DTO
                 {"rId", IdOfRecepie }
             });
         }
-        static IdOfRecepies GetReepies(List<string> ingridients)
+        public static IdOfRecepies GetReepies(List<string> ingridients)
         {
             using (var client = new HttpClient())
             {
@@ -96,19 +97,20 @@ namespace Hleb.Classes.DTO
                 return JsonConvert.DeserializeObject<IdOfRecepies>(result);
             }
         }
-        public void GetReepiesWithIngridients(List<string> ids)
+        public static ListOfRecepies GetReepiesWithIngridients(List<string> ids)
         {
-            IdOfRecepies idOf = new IdOfRecepies();
+
+            var list = new ListOfRecepies();
             using (var client = new HttpClient())
             {
-                for (int i = 0; i < idOf.IDOfRecepies.Count(); i++)
+                for (int i = 0; i < ids.Count(); i++)
                 {
-                    string result = client.GetStringAsync(MakeQueryforTheBaseOfingridients(idOf.IDOfRecepies[i])).Result;  // Blocking call!
-                    JsonConvert.DeserializeObject<ListOfRecepies>(result);
+                    string result = client.GetStringAsync(MakeQueryforTheBaseOfingridients(ids[i])).Result;  // Blocking call!
+                    Recipe recipe =  JsonConvert.DeserializeObject<Recipe>(result);
+                    list.Recipes.Add(recipe);
                 }
-
-
             }
+            return list;
         }
 
     }

@@ -152,5 +152,11 @@
   <ItemGroup>
     <Resource Include="Images\sign-out.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hleb.Classes\Hleb.Classes.csproj">
+      <Project>{0370e366-f0ac-4b70-a154-27d765e49aef}</Project>
+      <Name>Hleb.Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

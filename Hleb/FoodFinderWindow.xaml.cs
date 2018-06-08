@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hleb.Classes.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,10 @@ namespace Hleb
     /// </summary>
     public partial class FoodFinderWindow : Window
     {
+        public API Api { get; set; }
         public FoodFinderWindow()
         {
+            Api = new API();
             InitializeComponent();
         }
         private void ButtonBread2_Click(object sender, RoutedEventArgs e)
@@ -40,6 +43,15 @@ namespace Hleb
             st.Visibility = Visibility.Collapsed;
             st.Visibility = Visibility.Visible;
 
+        }
+
+        private void Find_Click(object sender, RoutedEventArgs e)
+        {
+            if(!string.IsNullOrWhiteSpace(IngridientsBox.Text))
+            {
+               var part = IngridientsBox.Text.Split(',');
+               API.GetReepiesWithIngridients(API.GetReepies(part.ToList()).IDOfRecepies);
+            }
         }
     }
 }
