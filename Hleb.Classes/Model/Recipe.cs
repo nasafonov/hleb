@@ -10,10 +10,9 @@ namespace Hleb.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Category Category { get; set; }
-        public string Description { get; set; }
-        public string Instruction { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public string URLdescription { get; set; }
+        public string URLimage { get; set; }
+        public List<string> Ingredients { get; set; }
         public double Rating { get; set; }
 
     }
