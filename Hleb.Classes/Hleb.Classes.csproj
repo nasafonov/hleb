@@ -67,5 +67,8 @@
   <ItemGroup>
     <Resource Include="Images\хлеб2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MainLogic\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

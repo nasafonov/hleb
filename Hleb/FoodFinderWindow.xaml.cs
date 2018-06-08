@@ -34,24 +34,26 @@ namespace Hleb
             Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void FindButton_Click(object sender, RoutedEventArgs e)
         {
             //Hide();
             //ReceiptWindow rr = new ReceiptWindow();
             //rr.Show();
             //Close();
-            st.Visibility = Visibility.Collapsed;
+
+            //st.Visibility = Visibility.Collapsed; она же у тебя и так невидимая, поэтому смысла особо нет в этом
             st.Visibility = Visibility.Visible;
 
+
         }
 
-        private void Find_Click(object sender, RoutedEventArgs e)
-        {
-            if(!string.IsNullOrWhiteSpace(IngridientsBox.Text))
-            {
-               var part = IngridientsBox.Text.Split(',');
-               API.GetReepiesWithIngridients(API.GetReepies(part.ToList()).IDOfRecepies);
-            }
-        }
+        //private void Find_Click(object sender, RoutedEventArgs e)  Эта кнопка не нужна нам
+        //{
+        //    if(!string.IsNullOrWhiteSpace(IngridientsBox.Text))
+        //    {
+        //       var part = IngridientsBox.Text.Split(',');
+        //       API.GetReepiesWithIngridients(API.GetReepies(part.ToList()).IDOfRecepies);
+        //    }
+        //}
     }
 }

@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Hleb.Classes.DTO
 {
-   public class API
+   
+    public class API 
     {
         static string BuildUrl(string baseUrl, IDictionary<string, List<string>> parameters)
         {
@@ -114,4 +115,10 @@ namespace Hleb.Classes.DTO
         }
 
     }
+
+    //public interface APIrequest
+    //{
+    //    List<Recipe> Filter(List<string> ingredients);
+    //    Recipe GetRecipe(string id);
+    //}
 }
