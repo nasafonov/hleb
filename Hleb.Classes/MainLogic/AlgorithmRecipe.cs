@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hleb.Model
+namespace Hleb.Classes.MainLogic
 {
-    public class Ingredient
+    class AlgorithmRecipe
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
     }
 }

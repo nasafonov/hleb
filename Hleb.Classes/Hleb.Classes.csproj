@@ -50,10 +50,9 @@
     <Compile Include="Factory.cs" />
     <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="MainLogic\AlgorithmRecipe.cs" />
     <Compile Include="Model\Favourite.cs" />
     <Compile Include="Repository\DbRepository.cs" />
-    <Compile Include="Model\Category.cs" />
-    <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +69,6 @@
   <ItemGroup>
     <Resource Include="Images\хлеб2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MainLogic\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

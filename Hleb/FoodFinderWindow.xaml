@@ -25,17 +25,23 @@
                 <ImageBrush ImageSource="Images/хлеб3.png" />
             </Button.Background>
         </Button>
+        <TextBlock Grid.Column="2" Text="Это для теста, донт вори --> "/>
+            
+        <StackPanel Grid.Column="3">
+            <CheckBox Name="check1" Content="Beef"/>
+            <CheckBox Name="check2" Content="Egg"/>
+        </StackPanel>
         <Button Name="bt" Content="Find recipes" Grid.Column="4" FontSize="14" Margin="5" Click="FindButton_Click"/>
         <Image Source="Images/хлеб2.png" Opacity="0.7" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="350" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Margin="166,0,60,151.2"/>
-        <Button Grid.Column="3" Content="Ingredients"  FontSize="14" Margin="5" ></Button>
         <StackPanel  Name="st" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" Background="#FFCDBF96" Width="732" Height="418" Visibility="Hidden" >
             <TextBlock Text="Add ingredient" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5"/>
             <TextBox Name="IngridientsBox" ></TextBox>
             <DataGrid Name="dataGridRecipe"  AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header=" " Binding="{Binding Image}"/>
-                    <DataGridTextColumn Header="Ingridientes" Width="1*" Binding="{Binding Ingridientes }"/>
-                    <DataGridTextColumn Header="Recipe" Binding="{Binding Instructure}"/>
+                    <DataGridTextColumn Header="Image" Binding="{Binding ImageURI}" Width="1*"/>
+                    <DataGridTextColumn Header="Name" Width="1*" Binding="{Binding Name }"/>
+                    <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" Width="1*"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding IDOfRecepies}" Width="1*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

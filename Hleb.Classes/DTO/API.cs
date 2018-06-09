@@ -10,8 +10,14 @@ using System.Threading.Tasks;
 
 namespace Hleb.Classes.DTO
 {
-   
-    public class API 
+
+    public interface APIrequest
+    {
+        ListOfModelOfRecipes Filter(List<string> ingredients);
+        ListOfRecepies GetRecipe(ListOfModelOfRecipes listOfModelOfRecipes);
+    }
+
+    public class API : APIrequest
     {
         static string BuildUrl(string baseUrl, IDictionary<string, List<string>> parameters)
         {
@@ -26,7 +32,7 @@ namespace Hleb.Classes.DTO
                     for (int i = 0; i < p.Value.Count(); i++)
                     {
                         sb.Append(WebUtility.UrlEncode(p.Value[i]));
-                        if (i == p.Value.Count())
+                        if (i == p.Value.Count() - 1)
                         {
                             sb.Append('&');
                         }
@@ -68,13 +74,16 @@ namespace Hleb.Classes.DTO
             // Simple option
             // return $"http://food2fork.com/api/search";
             List<string> key = new List<string>();
-            key[0] = "7d11e6e8f3c6fc0381373fde96262632";
+            //key[0] = "7d11e6e8f3c6fc0381373fde96262632";
+            key.Add("7d11e6e8f3c6fc0381373fde96262632");
             // A better option:
             return BuildUrl("http://food2fork.com/api/search", new Dictionary<string, List<string>>
             {
-                {"q", ingridients },
+                {"key", key },
+                {"q", ingridients }
+                //{"q", ingridients },
 
-                {"key", key }
+                //{"key", key }
             });
         }
         static string MakeQueryforTheBaseOfingridients(string IdOfRecepie)
@@ -90,15 +99,15 @@ namespace Hleb.Classes.DTO
                 {"rId", IdOfRecepie }
             });
         }
-        public static ListOfModelOfRecipes GetReepies(List<string> ingridients)
+        public ListOfModelOfRecipes Filter(List<string> ingredients)
         {
             using (var client = new HttpClient())
             {
-                string result = client.GetStringAsync(MakeQueryforRecepies(ingridients)).Result;  // Blocking call!
+                string result = client.GetStringAsync(MakeQueryforRecepies(ingredients)).Result;  // Blocking call!
                 return JsonConvert.DeserializeObject<ListOfModelOfRecipes>(result);
             }
         }
-        public static ListOfRecepies GetReepiesWithIngridients(ListOfModelOfRecipes listOfModelOfRecipes)
+        public ListOfRecepies GetRecipe(ListOfModelOfRecipes listOfModelOfRecipes)
         {
 
             var list = new ListOfRecepies();
@@ -116,9 +125,5 @@ namespace Hleb.Classes.DTO
 
     }
 
-    //public interface APIrequest
-    //{
-    //    List<Recipe> Filter(List<string> ingredients);
-    //    Recipe GetRecipe(string id);
-    //}
+    
 }
