@@ -44,13 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\API.cs" />
-    <Compile Include="DTO\IdOfRecepies.cs" />
+    <Compile Include="DTO\ListOfModelOfRecipes.cs" />
+    <Compile Include="DTO\ModelOfRecipe.cs" />
     <Compile Include="DTO\ListOfRecepies.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Model\Favourite.cs" />
     <Compile Include="Repository\DbRepository.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

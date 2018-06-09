@@ -15,7 +15,7 @@ namespace Hleb.Classes
 
         private IRepository _repo;
 
-        //не удаляйте, это нужно))
+        //не удаляйте, это нужно)))
        // public IRepository GetRepository() => _repo ?? (_repo = new DbRepository());
     }
 }

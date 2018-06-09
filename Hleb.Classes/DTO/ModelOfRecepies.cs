@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hleb.Classes.DTO
 {
-   public class IdOfRecepies
+    class IdOfRecepies
     {
         [JsonProperty("recipe_id")]
         public List<string> IDOfRecepies { get; set; }

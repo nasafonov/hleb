@@ -89,23 +89,23 @@ namespace Hleb.Classes.DTO
                 {"rId", IdOfRecepie }
             });
         }
-        public static IdOfRecepies GetReepies(List<string> ingridients)
+        public static ListOfModelOfRecipes GetReepies(List<string> ingridients)
         {
             using (var client = new HttpClient())
             {
                 string result = client.GetStringAsync(MakeQueryforRecepies(ingridients)).Result;  // Blocking call!
-                return JsonConvert.DeserializeObject<IdOfRecepies>(result);
+                return JsonConvert.DeserializeObject<ListOfModelOfRecipes>(result);
             }
         }
-        public static ListOfRecepies GetReepiesWithIngridients(List<string> ids)
+        public static ListOfRecepies GetReepiesWithIngridients(ListOfModelOfRecipes listOfModelOfRecipes)
         {
 
             var list = new ListOfRecepies();
             using (var client = new HttpClient())
             {
-                for (int i = 0; i < ids.Count(); i++)
+                for (int i = 0; i < listOfModelOfRecipes.ModelOfRecipes.Count(); i++)
                 {
-                    string result = client.GetStringAsync(MakeQueryforTheBaseOfingridients(ids[i])).Result;  // Blocking call!
+                    string result = client.GetStringAsync(MakeQueryforTheBaseOfingridients(listOfModelOfRecipes.ModelOfRecipes[i].IDOfRecepies)).Result;  // Blocking call!
                     Recipe recipe =  JsonConvert.DeserializeObject<Recipe>(result);
                     list.Recipes.Add(recipe);
                 }
