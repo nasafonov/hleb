@@ -49,6 +49,12 @@ namespace Hleb
 
             st.Visibility = Visibility.Visible;
 
+            Button but = new Button();
+            but.Height = 40;
+            but.Width = 40;
+            but.VerticalAlignment = VerticalAlignment.Bottom;
+            //st.Children.Add(but);
+            //but.Click +=    
 
         }
 
