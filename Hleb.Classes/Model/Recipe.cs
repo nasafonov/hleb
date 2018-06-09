@@ -14,10 +14,15 @@ namespace Hleb.Model
         [JsonProperty("title")]
         public string Name { get; set; }
         public Category Category { get; set; }
+        [JsonProperty("source_url")]
         public string Description { get; set; }
         public string Instruction { get; set; }
+        [JsonProperty("ingredients")]
         public List<Ingredient> Ingredients { get; set; }
+        [JsonProperty("social_rank")]
         public double Rating { get; set; }
+        [JsonProperty("image_url")]
+        public string ImageURI { get; set; }
 
     }
 }
