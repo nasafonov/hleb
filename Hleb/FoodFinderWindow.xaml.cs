@@ -23,6 +23,7 @@ namespace Hleb
     {
         APIrequest _request = new API();
         List<string> _ingredients = new List<string>();
+        List<Button> _btns = new List<Button>();
 
         public FoodFinderWindow()
         {         
@@ -38,21 +39,29 @@ namespace Hleb
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if (check1.IsChecked == true)
                 _ingredients.Add(check1.Content.ToString());
 
             if (check2.IsChecked == true)
                 _ingredients.Add(check2.Content.ToString());
-
-
-           // dataGridRecipe.ItemsSource = _request.Filter(_ingredients).ModelOfRecipes;
-
-
+            if (check3.IsChecked == true)
+                _ingredients.Add(check3.Content.ToString());
+            if (check4.IsChecked == true)
+                _ingredients.Add(check4.Content.ToString());
+            if (check5.IsChecked == true)
+                _ingredients.Add(check5.Content.ToString());
+            
             foreach (var rec in _request.Filter(_ingredients).ModelOfRecipes)
             {
 
 
                 Grid grid = new Grid();
+
+                Rectangle rect = new Rectangle();
+                rect.Stroke = new SolidColorBrush(Colors.Black);
+                rect.Height = 200;
+                grid.Children.Add(rect);
                 
                 StackPanel stack = new StackPanel();
                 stack.Orientation = Orientation.Horizontal;
@@ -98,12 +107,16 @@ namespace Hleb
 
                 grid.Children.Add(stack);
 
-                Button bt = new Button();
-                bt.Name = $"Button_{rec.IDOfRecepies}";
-                bt.VerticalAlignment = VerticalAlignment.Center;
-                bt.Height = 150;
-                bt.Opacity = 0;
+                
 
+                Button bt = new Button();
+                bt.Content = $"{rec.IDOfRecepies}";
+                bt.VerticalAlignment = VerticalAlignment.Center;
+                bt.Height = 200;
+                bt.Opacity = 0;
+                _btns.Add(bt);
+
+                bt.Click += Bt_Click;
                 bt.Cursor = Cursors.Hand;
 
                 Button Fav = new Button();
@@ -113,6 +126,7 @@ namespace Hleb
                 Fav.Width = 150;
                 Fav.Content = "Add to Recipe Book";
                 Fav.Cursor = Cursors.Hand;
+                Fav.Click += Fav_Click;
 
                 grid.Children.Add(bt);
                 grid.Children.Add(Fav);
@@ -121,10 +135,18 @@ namespace Hleb
                 
 
                 Scroll.Children.Add(grid);
+                Rectangle space = new Rectangle();
+                space.Opacity = 0;
+                space.Height = 20;
+                Scroll.Children.Add(space);
                
             }
 
             st.Visibility = Visibility.Visible;
+            
+
+            
+            
 
             //Button but = new Button();
             //but.Height = 40;
@@ -134,6 +156,26 @@ namespace Hleb
 
         }
 
-        
+        private void Fav_Click(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void Bt_Click(object sender, RoutedEventArgs e)
+        {
+            string id = null;
+            foreach (var button in _btns)
+                if(button.IsMouseOver)
+                {
+                    id = button.Content.ToString();
+                    continue;
+                }
+
+            RecipeWindow rw = new RecipeWindow(id);
+            rw.Show();
+            
+            //throw new NotImplementedException();
+            
+        }
     }
 }

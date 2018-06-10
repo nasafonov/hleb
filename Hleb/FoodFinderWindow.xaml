@@ -29,8 +29,11 @@
         <StackPanel Grid.Column="2">
             <CheckBox Name="check1" Content="Beef"/>
             <CheckBox Name="check2" Content="Apple"/>
+            <CheckBox Name="check3" Content="Potato"/>
+            <CheckBox Name="check4" Content="Bread"/>
+            <CheckBox Name="check5" Content="Cheese"/>
         </StackPanel>
-        <Button Name="bt" Content="Find recipes" Grid.Column="3" FontSize="14" Margin="5" Click="FindButton_Click" Cursor="Hand"/>
+        <Button Name="but" Content="Find recipes" Grid.Column="3" FontSize="14" Margin="5" Click="FindButton_Click" Cursor="Hand"/>
         <Image Source="Images/хлеб2.png" Opacity="0.7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="4"/>
         <ScrollViewer Name="st" Grid.Row="1" Background="#FFCDBF96" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "4" Visibility="Hidden">
             <StackPanel Name="Scroll">

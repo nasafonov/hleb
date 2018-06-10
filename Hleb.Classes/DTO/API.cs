@@ -14,7 +14,7 @@ namespace Hleb.Classes.DTO
     public interface APIrequest
     {
         ListOfModelOfRecipes Filter(List<string> ingredients);
-        ListOfRecepies GetRecipe(ListOfModelOfRecipes listOfModelOfRecipes);
+        ListOfRecepies GetRecipe(string id);
     }
 
     public class API : APIrequest
@@ -107,20 +107,15 @@ namespace Hleb.Classes.DTO
                 return JsonConvert.DeserializeObject<ListOfModelOfRecipes>(result);
             }
         }
-        public ListOfRecepies GetRecipe(ListOfModelOfRecipes listOfModelOfRecipes)
+        public ListOfRecepies GetRecipe(string id)
         {
 
-            var list = new ListOfRecepies();
             using (var client = new HttpClient())
             {
-                for (int i = 0; i < listOfModelOfRecipes.ModelOfRecipes.Count(); i++)
-                {
-                    string result = client.GetStringAsync(MakeQueryforTheBaseOfingridients(listOfModelOfRecipes.ModelOfRecipes[i].IDOfRecepies)).Result;  // Blocking call!
-                    Recipe recipe =  JsonConvert.DeserializeObject<Recipe>(result);
-                    list.Recipes.Add(recipe);
-                }
+                string result = client.GetStringAsync(MakeQueryforTheBaseOfingridients(id)).Result;  // Blocking call!
+                return JsonConvert.DeserializeObject<ListOfRecepies>(result);              
             }
-            return list;
+            
         }
 
     }
