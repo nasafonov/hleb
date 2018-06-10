@@ -1,5 +1,6 @@
 namespace Hleb.Classes.Migrations
 {
+    using Hleb.Classes.Repository;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -18,6 +19,9 @@ namespace Hleb.Classes.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+            var js = new JsRepository();
+            js.usersdata.ToList().ForEach(user => context.Users.AddOrUpdate(u => u.Email, user));
         }
     }
 }

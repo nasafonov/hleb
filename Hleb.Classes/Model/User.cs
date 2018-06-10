@@ -17,6 +17,7 @@ namespace Hleb.Model
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public List<Favourite> Favourites { get; set; }
+        [JsonIgnore]
+        public virtual List<Favourite> Favourites { get; set; }
     }
 }

@@ -64,18 +64,25 @@
     <Compile Include="Migrations\201806101900025_Install.Designer.cs">
       <DependentUpon>201806101900025_Install.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806102129532_UserId.cs" />
+    <Compile Include="Migrations\201806102129532_UserId.Designer.cs">
+      <DependentUpon>201806102129532_UserId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Favourite.cs" />
     <Compile Include="Repository\DbRepository.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\JsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Data\favourites.json" />
+    <None Include="Data\users.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +95,10 @@
     <EmbeddedResource Include="Migrations\201806101900025_Install.resx">
       <DependentUpon>201806101900025_Install.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806102129532_UserId.resx">
+      <DependentUpon>201806102129532_UserId.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
