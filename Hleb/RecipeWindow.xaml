@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
         Title="RecipeWindow">
-    <Grid Name="MainGrid" Background="#FFCDBF96" >
+    <Grid Name="MainGrid" >
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="1.2*"/>

@@ -21,7 +21,7 @@ namespace Hleb.Classes.Migrations
             //  to avoid creating duplicate seed data.
 
             var js = new JsRepository();
-            js.usersdata.ToList().ForEach(user => context.Users.AddOrUpdate(u => u.Email, user));
+            js.Users.ForEach(user => context.Users.AddOrUpdate(u => u.Email, user));
         }
     }
 }

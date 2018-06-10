@@ -23,23 +23,25 @@ namespace Hleb
     {
         public MainWindow()
         {
-            var check = new JsRepository();
+           // var check = new JsRepository();
             InitializeComponent();           
-        }
-
-        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            RegistrationWindow mw = new RegistrationWindow();
-            mw.ShowDialog();
-            Close();
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
+            
+                Hide();
+                UserWindow mw = new UserWindow();
+                mw.Show();
+                Close();
+            
+        }
+
+        private void ButtonRegistration2_Click(object sender, RoutedEventArgs e)
+        {
             Hide();
-            UserWindow mw = new UserWindow();
-            mw.Show();
+            RegistrationWindow mw = new RegistrationWindow();
+            mw.ShowDialog();
             Close();
         }
     }

@@ -7,26 +7,54 @@
         mc:Ignorable="d"
         Title="Registration" Height="530" Width="700">
     <Grid Background="#FFCDBF96">
-        <Button Name="ButtonHome" BorderThickness="0" Margin="9" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonHome_Click" >
+        <Image Source="Images\обои2.jpg" Height="5000" Width="900"></Image>
+        <Button Name="ButtonHome" BorderThickness="0" Margin="9" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonHome_Click" Foreground="White" BorderBrush="White" >
             <Button.Background>
                 <ImageBrush ImageSource="Images\Home.png"/>
             </Button.Background>
         </Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
 
-            <TextBlock HorizontalAlignment="Center"  Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular" TextDecorations="{x:Null}">Name</TextBlock>
+            <TextBlock HorizontalAlignment="Center"  Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular" TextDecorations="{x:Null}" Foreground="White">Name</TextBlock>
             <TextBox Name="textBoxname" Width="400" Height="50" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Center" Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Surname</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular" Foreground="White">Surname</TextBlock>
             <TextBox Name="textBoxname2" Width="400" Height="50" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Center"  Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Email</TextBlock>
+            <TextBlock HorizontalAlignment="Center"  Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular" Foreground="White">Email</TextBlock>
             <TextBox Name="textBoxemail" Width="400" Height="50" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Center" Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular">Password</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Width="400" Height="50" TextAlignment="Center" FontSize="36" FontWeight="Regular" Foreground="White">Password</TextBlock>
             <PasswordBox Name="textBoxpassword" Width="400" Height="50" FontSize="36"/>
 
             <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Width="360">
-                <Button Content="Registration" Width="200" Margin="5" Height="60"  FontSize="34" Click="Button_Click" />
+                <Button x:Name="myButton3" Content="Registration" Margin="9" Height="63" Width="200" FontSize="30" BorderBrush="#FFDC0D0D" Foreground="White" Click="Button_Click" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                                </Border.Background>
+                                <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="MouseOver">
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFE2531A" />
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState Name="Normal">
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFDC0D0D" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <TextBlock Text="Or" VerticalAlignment="Center" FontSize="30" />
-                <Button Name="ButtonVK" BorderThickness="0" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonVK_Click" Margin="9" >
+                <Button Name="ButtonVK" BorderThickness="0" Height="67" Width="67" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonVK_Click" Margin="9" >
                     <Button.Background>
                         <ImageBrush ImageSource="Images\VK.png" />
                     </Button.Background>
