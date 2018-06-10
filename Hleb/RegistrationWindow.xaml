@@ -26,7 +26,7 @@
             <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Width="360">
                 <Button Content="Registration" Width="200" Margin="5" Height="60"  FontSize="34" Click="Button_Click" />
                 <TextBlock Text="Or" VerticalAlignment="Center" FontSize="30" />
-                <Button Name="ButtonVK" BorderThickness="0" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="9" >
+                <Button Name="ButtonVK" BorderThickness="0" Height="60" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonVK_Click" Margin="9" >
                     <Button.Background>
                         <ImageBrush ImageSource="Images\VK.png" />
                     </Button.Background>

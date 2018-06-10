@@ -10,7 +10,7 @@ namespace Hleb.Classes.Model
     public class Favourite
     {
         public int Id { get; set; }
-        public Recipe Recipe { get; set; }
+        public string RecipeId { get; set; }
         public string Description { get; set; }
 
     }

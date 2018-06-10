@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hleb.Classes.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace Hleb
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        VKAPI _vkClient = new VKAPI();
         public RegistrationWindow()
         {
             InitializeComponent();
+        }
+        private void Authorize()
+        {
+            var browserWindow = new BrowserWindow();
+
+            browserWindow.OnRedirected += _vkClient.AuthorizationRedirect;
+            browserWindow.Show();
+
+            browserWindow.NavigateTo(_vkClient.GetAuthUrl(), _vkClient.RedirectPage);
         }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
@@ -39,6 +50,11 @@ namespace Hleb
             MainWindow mw = new MainWindow();
             mw.Show();
             Close();
+        }
+
+        private void ButtonVK_Click(object sender, RoutedEventArgs e)
+        {
+            Authorize();
         }
     }
 }
