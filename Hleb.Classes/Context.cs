@@ -12,7 +12,7 @@ namespace Hleb.Classes
     class Context: DbContext
     {
         public DbSet<Favourite> Favourites { get; set; }
-        public DbSet<User> MyProperty { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public Context(): base("Hleb")
         {
