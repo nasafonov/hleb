@@ -11,31 +11,63 @@ namespace Hleb.Classes
 {
     public class DbRepository
     {
-        public IEnumerable<Recipe> Recipes { get; }
+        private List<User> Users { get; set; }
+        
         public IEnumerable<Favourite> Favourites { get; }
-        public User AuthorizedUser { get; }
+        public User AutorisedUser { get; set; }
+        public IList<User> usersdata => Users;
 
+        private Context context;
 
+        public DbRepository()
+        {
+            context = new Context();
+            RestoreData();
+        }
+
+        public void RestoreData()
+        {
+            Users = context.Users.ToList();
+        }
 
         public bool RegisterUser(string name, string email,  string password)
         {
-            var user = new User()
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("User name cannot be empty");
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("User email cannot be empty");
+            if (string.IsNullOrWhiteSpace(PasswordHelpers.GetHash(password)))
+                throw new ArgumentException("User password cannot be empty");
+
+            if (context.Users.FirstOrDefault(u => u.Email == email) == null)
             {
-                Name = name,
-                Email = email,
-                Password = PasswordHelpers.GetHash(password),
-                Favourites = new List<Favourite>()
-            };
-           
-            var DbRepository = new DbRepository();
-            return true;
+                var user = new User()
+                {
+                    Name = name,
+                    Email = email,
+                    Password = PasswordHelpers.GetHash(password),
+                    Favourites = new List<Favourite>()
+                };
+                Users.Add(user);
+                context.Users.Add(user);
+                context.SaveChanges();
+                return true;
+            }
+            else
+                return false;
         }
 
 
         public bool Authorize(string login, string password)
         {
-            
-            return false;
+            var user = context.Users.FirstOrDefault(u => u.Email == login && u.Password == PasswordHelpers.GetHash(password));
+            if (user!=null)
+            {
+                AutorisedUser = user;
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

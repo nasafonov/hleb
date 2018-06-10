@@ -12,11 +12,10 @@ namespace Hleb.Classes.Repository
 {
     public class JsRepository
     {
-        private List<User> Users { get; set; }
+        public List<User> Users { get; set; }
         private List<Favourite> Favourites { get; set; }
 
         public User AutorisedUser { get; set; }
-        public IList<User> usersdata => Users;
 
         public JsRepository()
         {
