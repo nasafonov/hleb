@@ -10,11 +10,11 @@ namespace Hleb.Model
     public class Recipe
     {
         [JsonProperty("recipe_id")]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [JsonProperty("title")]
         public string Name { get; set; }
         [JsonProperty("source_url")]
-        public string DetailsURL { get; set; }
+        public Uri DetailsURL { get; set; }
         //public string Description { get; set; }
         //public string Instruction { get; set; }
         [JsonProperty("ingredients")]

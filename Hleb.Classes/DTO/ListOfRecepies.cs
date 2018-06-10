@@ -1,4 +1,5 @@
 ﻿using Hleb.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Hleb.Classes.DTO
 {
     public class ListOfRecepies
     {
-        public List<Recipe> Recipes { get; set; }
+        [JsonProperty("recipe")]
+        public Recipe Recipe { get; set; }
     }
 }
