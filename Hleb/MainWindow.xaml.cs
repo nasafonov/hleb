@@ -29,7 +29,7 @@ namespace Hleb
         {
             Hide();
             RegistrationWindow mw = new RegistrationWindow();
-            mw.Show();
+            mw.ShowDialog();
             Close();
         }
 
