@@ -55,6 +55,7 @@
     <Compile Include="DTO\ListOfModelOfRecipes.cs" />
     <Compile Include="DTO\ModelOfRecipe.cs" />
     <Compile Include="DTO\ListOfRecepies.cs" />
+    <Compile Include="DTO\VKAPI.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
