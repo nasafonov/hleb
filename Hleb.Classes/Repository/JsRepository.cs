@@ -17,7 +17,7 @@ namespace Hleb.Classes.Repository
 
         public User AutorisedUser { get; set; }
 
-        public JsRepository()
+        public JsRepository(string users, string favourites)
         {
             //Users = new List<User>() { new User { Id = 1, Email = "1", Password = "1", Name = "Name" } };
             //Favourites = new List<Favourite>() { new Favourite { Description = "nyam", UserId = 1, Id = 1 } };

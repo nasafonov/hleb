@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checker.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="DTO\API.cs" />
     <Compile Include="DTO\ListOfModelOfRecipes.cs" />
@@ -69,6 +70,10 @@
     <Compile Include="Migrations\201806102129532_UserId.Designer.cs">
       <DependentUpon>201806102129532_UserId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806112058486_1.cs" />
+    <Compile Include="Migrations\201806112058486_1.Designer.cs">
+      <DependentUpon>201806112058486_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Favourite.cs" />
     <Compile Include="Repository\DbRepository.cs" />
@@ -81,13 +86,16 @@
     <Resource Include="Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806112058486_1.resx">
+      <DependentUpon>201806112058486_1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Data\favourites.json">
+    <EmbeddedResource Include="Data\favourites.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\users.json">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\users.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
