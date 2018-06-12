@@ -24,6 +24,9 @@ namespace Hleb
     {
         IRepository _repo = Factory.Instance.GetRepository();
         VKAPI _vkClient = new VKAPI();
+
+        public event Action RegistrationFinished;
+
         public RegistrationWindow()
         {
             InitializeComponent();
@@ -55,12 +58,13 @@ namespace Hleb
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
         {
             if(_repo.RegisterUser(textBoxname.Text, textBoxname2.Text, textBoxemail.Text, textBoxpassword.ToString()))
-                 MessageBox.Show("you're sucsessfully loged in");
+            {
+                MessageBox.Show("you're sucsessfully loged in");
+                RegistrationFinished?.Invoke();
+                Close();
+            }  
             else
-                MessageBox.Show("Wrong");
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            Close();
+                MessageBox.Show("User with this email alriedy exist");
         }
     }
 }

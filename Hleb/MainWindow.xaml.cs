@@ -41,16 +41,21 @@ namespace Hleb
                 Close();
             }
             else
-                MessageBox.Show("wrong password or email");
+                MessageBox.Show("try input again");
 
         }
 
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            RegistrationWindow mw = new RegistrationWindow();
-            mw.ShowDialog();
-            Close();
+            RegistrationWindow rw = new RegistrationWindow();
+            rw.RegistrationFinished += Registration_Finished;
+            rw.Show();
+        }
+
+        private void Registration_Finished()
+        {
+            Show();
         }
     }
 }

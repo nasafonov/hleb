@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Hleb.Classes
 {
@@ -38,13 +39,26 @@ namespace Hleb.Classes
         public bool RegisterUser(string name, string lastname, string email,  string password)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("User name cannot be empty");
+            {
+                MessageBox.Show("User name cannot be empty");
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(lastname))
-                throw new ArgumentException("User lastname cannot be empty");
+            {
+                MessageBox.Show("User lastname cannot be empty");
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("User email cannot be empty");
+            {
+                MessageBox.Show("User email cannot be empty");
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(PasswordHelpers.GetHash(password)))
-                throw new ArgumentException("User password cannot be empty");
+            {
+                MessageBox.Show("User password cannot be empty");
+                return false;
+            }
+            
 
             if (context.Users.FirstOrDefault(u => u.Email == email) == null)
             {
@@ -69,10 +83,20 @@ namespace Hleb.Classes
         }
 
 
-        public bool Authorize(string login, string password)
+        public bool Authorize(string email, string password)
         {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("User email cannot be empty");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("User password cannot be empty");
+                return false;
+            }
             password = PasswordHelpers.GetHash(password);
-            var user = context.Users.FirstOrDefault(u => u.Email == login && u.Password == password);
+            var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
             if (user!=null)
             {
                 AuthorizedUser = user;
