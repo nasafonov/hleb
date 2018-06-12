@@ -71,6 +71,9 @@
     <Compile Include="BrowserWindow.xaml.cs">
       <DependentUpon>BrowserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FavouritesWindow.xaml.cs">
+      <DependentUpon>FavouritesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FoodFinderWindow.xaml.cs">
       <DependentUpon>FoodFinderWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <DependentUpon>ПРОБНОЕ ОКНО.xaml</DependentUpon>
     </Compile>
     <Page Include="BrowserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FavouritesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
