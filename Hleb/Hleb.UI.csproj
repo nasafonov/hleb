@@ -39,6 +39,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -48,9 +50,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -74,6 +78,9 @@
     </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ПРОБНОЕ ОКНО.xaml.cs">
+      <DependentUpon>ПРОБНОЕ ОКНО.xaml</DependentUpon>
     </Compile>
     <Page Include="BrowserWindow.xaml">
       <SubType>Designer</SubType>
@@ -108,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ПРОБНОЕ ОКНО.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,16 +160,13 @@
     <Resource Include="Images\VK.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\lace.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\list.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\information.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\хлеб3.png" />
+    <Resource Include="Images\хлеб33.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Человек.png" />
@@ -174,6 +182,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\обои2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\lace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\хлеб3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\щщ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ll.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

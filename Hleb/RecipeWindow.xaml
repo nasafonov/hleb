@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
         Title="RecipeWindow">
+    <Window.Background>
+        <ImageBrush ImageSource="Images\ll.jpg" />
+    </Window.Background>
     <Grid Name="MainGrid" >
        
         <Grid.ColumnDefinitions>
@@ -19,18 +22,18 @@
         </Grid.RowDefinitions>
         <Image Name="Img" Margin="10" Grid.Row="1"/>
         <StackPanel Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock FontFamily="Rockwell Nova" Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
             
             <Hyperlink Name="Hyper"  RequestNavigate="Hyperlink_RequestNavigate" FontSize="40" >Click Hear</Hyperlink>
             </TextBlock>
-            <TextBlock Name="rate" Text="Rating - " FontSize="18" TextAlignment="Center"/>
+            <TextBlock Name="rate" FontFamily="Rockwell Nova" Text="Rating - " FontSize="18" TextAlignment="Center" Foreground="Black"/>
         </StackPanel>
 
         <StackPanel Name="Stack" Grid.Column="1" Grid.RowSpan="3" Margin="20">
-            <TextBlock Text="Ingredients" FontSize="36" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" />
+            <TextBlock Text="Ingredients" FontFamily="Rockwell Nova" FontSize="36" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Foreground="Black" />
             <TextBlock Height="25"/>
         </StackPanel>
-        <TextBlock Name="nametxt" Margin="5" Text="Name" FontSize="40" FontWeight="Bold" TextAlignment="Center" />
+        <TextBlock Name="nametxt" Margin="5" FontFamily="Rockwell Nova" Text="Name" FontSize="40" FontWeight="Bold" TextAlignment="Center" Foreground="Black" />
 
     </Grid>
 </Window>

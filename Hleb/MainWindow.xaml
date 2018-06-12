@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-       Title="Food" Height="500" Width="500" Background="#FF9FB02A">
-    <Grid Background="#FFCDBF96">
-        <Image Source="Images\обои2.jpg" Height="500" Width="900"></Image>
+       Title="Food" Height="500" Width="500">
+    <Window.Background>
+        <ImageBrush ImageSource="Images\dd.jpg" />
+    </Window.Background>
+    <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" Height="110">
+            <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" Height="110" Opacity="0.955">
             </Image>
             <TextBlock HorizontalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova" Foreground="White" ><Run Text="Email"/></TextBlock>
-            <TextBox Name="textBoxLogin" VerticalAlignment="Center" FontSize="22" Width="300" Height="50"/>
+            <TextBox Name="textBoxLogin" Tag="emil" VerticalAlignment="Center" FontSize="22" Width="300" Height="50" FontFamily="Rockwell Nova"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova Cond" Foreground="White"><Run Text="Password"/></TextBlock>
             <PasswordBox  Name="textBoxPassword" VerticalAlignment="Center"  Width="300" Height="50" FontSize="22"/>
-            <StackPanel Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="338" >
-                <Button x:Name="myButton" Content="Login" Height="50" Width="111" FontSize="27" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonLogin_Click" >
+            <StackPanel Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="350" >
+                <Button x:Name="myButton" Content="Login" Height="50" Width="111" FontSize="27" FontFamily="Rockwell Nova" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonLogin_Click" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
@@ -29,13 +31,13 @@
                                         <VisualState Name="MouseOver">
                                             <Storyboard>
                                                 <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFE2531A" />
+                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
                                             </Storyboard>
                                         </VisualState>
                                         <VisualState Name="Normal">
                                             <Storyboard>
                                                 <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFDC0D0D" />
+                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
                                             </Storyboard>
                                         </VisualState>
                                     </VisualStateGroup>
@@ -45,7 +47,7 @@
                     </Button.Template>
                 </Button>
                 <TextBlock Text="Or" VerticalAlignment="Center" FontSize="20" FontFamily="Rockwell Nova" Foreground="White" Margin="9"/>
-                <Button x:Name="myButton2" Content="Registration" Height="53" Width="183" FontSize="27" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonRegistration2_Click" >
+                <Button x:Name="myButton2" Content="Registration" Height="53" Width="195" FontFamily="Rockwell Nova" FontSize="27" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonRegistration2_Click" Background="#FFD63E0B" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
@@ -58,13 +60,13 @@
                                         <VisualState Name="MouseOver">
                                             <Storyboard>
                                                 <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFE2531A" />
+                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
                                             </Storyboard>
                                         </VisualState>
                                         <VisualState Name="Normal">
                                             <Storyboard>
                                                 <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFDC0D0D" />
+                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
                                             </Storyboard>
                                         </VisualState>
                                     </VisualStateGroup>
