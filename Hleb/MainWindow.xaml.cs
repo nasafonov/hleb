@@ -1,4 +1,5 @@
-﻿using Hleb.Classes.Repository;
+﻿using Hleb.Classes;
+using Hleb.Classes.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Hleb
     {
         public MainWindow()
         {
-           // var check = new JsRepository();
+           // var check = new Checker();
             InitializeComponent();           
         }
 
