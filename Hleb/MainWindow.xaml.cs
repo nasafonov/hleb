@@ -1,8 +1,12 @@
 ﻿using Hleb.Classes;
 using Hleb.Classes.Interfaces;
+using Hleb.Classes.Model;
 using Hleb.Classes.Repository;
+using Hleb.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +33,9 @@ namespace Hleb
         {
             //var check = new JsRepository();
             //var check = new Checker();
-            InitializeComponent();           
+            InitializeComponent();
+            
+
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)

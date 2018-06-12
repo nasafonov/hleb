@@ -19,5 +19,12 @@
     "last_name": "1",
     "Email": "2",
     "Password": "teMAoVel5d9WAguo5onvQA=="
+  },
+  {
+    "Id": 3,
+    "first_name": "James",
+    "last_name": "Bond",
+    "Email": "jb007@gmail.com",
+    "Password": "teMAoVel5d9WAguo5onvQA=="
   }
 ]
