@@ -198,10 +198,16 @@ namespace Hleb
             _ingredients = new List<string>();
             Scroll.Children.Clear();
             st.Visibility = Visibility.Hidden;
+            resultStack.Children.Clear();
+            resultStack.Visibility = System.Windows.Visibility.Collapsed;
+            textBox.Text = "";
         }
+
+
 
         private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
+            
             bool found = false;
             var border = (resultStack.Parent as ScrollViewer).Parent as Border;
             
@@ -269,6 +275,17 @@ namespace Hleb
 
             // Add to the panel   
             resultStack.Children.Add(block);
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Filtertxt.Text += $" {textBox.Text}";
+            _ingr.Add(textBox.Text);
+            resultStack.Children.Clear();
+            //resultStack.Visibility = System.Windows.Visibility.Collapsed;
+            bord.Visibility = Visibility.Collapsed;
+            textBox.Text = "";
+
         }
     }
 }
