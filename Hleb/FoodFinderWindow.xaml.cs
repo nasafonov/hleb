@@ -28,6 +28,7 @@ namespace Hleb
         List<string> _ingredients = new List<string>();
         List<Button> _btns = new List<Button>();
         List<string> _ingr = new List<string>();
+        
 
 
         public FoodFinderWindow()
@@ -201,6 +202,7 @@ namespace Hleb
             resultStack.Children.Clear();
             resultStack.Visibility = System.Windows.Visibility.Collapsed;
             textBox.Text = "";
+            Filtertxt.Text = "";
         }
 
 
@@ -280,7 +282,7 @@ namespace Hleb
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             Filtertxt.Text += $" {textBox.Text}";
-            _ingr.Add(textBox.Text);
+            _ingredients.Add(textBox.Text);
             resultStack.Children.Clear();
             //resultStack.Visibility = System.Windows.Visibility.Collapsed;
             bord.Visibility = Visibility.Collapsed;
