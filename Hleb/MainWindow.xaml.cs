@@ -24,7 +24,7 @@ namespace Hleb
     {
         public MainWindow()
         {
-           // var check = new Checker();
+           var check = new Checker();
             InitializeComponent();           
         }
 

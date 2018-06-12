@@ -62,9 +62,9 @@
     <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="MainLogic\AlgorithmRecipe.cs" />
-    <Compile Include="Migrations\201806121414459_v.2.0.cs" />
-    <Compile Include="Migrations\201806121414459_v.2.0.Designer.cs">
-      <DependentUpon>201806121414459_v.2.0.cs</DependentUpon>
+    <Compile Include="Migrations\201806121422476_Install.cs" />
+    <Compile Include="Migrations\201806121422476_Install.Designer.cs">
+      <DependentUpon>201806121422476_Install.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Favourite.cs" />
@@ -78,8 +78,8 @@
     <Resource Include="Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806121414459_v.2.0.resx">
-      <DependentUpon>201806121414459_v.2.0.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806121422476_Install.resx">
+      <DependentUpon>201806121422476_Install.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EmbeddedResource Include="Data\favourites.json">

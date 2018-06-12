@@ -1,9 +1,7 @@
 namespace Hleb.Classes.Migrations
 {
     using Hleb.Classes.Model;
-    using Hleb.Classes.Repository;
     using Hleb.Model;
-    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
@@ -19,17 +17,15 @@ namespace Hleb.Classes.Migrations
         {
             AutomaticMigrationsEnabled = false;
         }
-
+        //update-database
         protected override void Seed(Hleb.Classes.Context context)
         {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            //GetFavourites(context);
-            GetUsers(context);
-            //update-database
 
+            GetUsers(context);
         }
         private void GetUsers(Hleb.Classes.Context context)
         {
@@ -38,7 +34,7 @@ namespace Hleb.Classes.Migrations
             var Favourites = GetFavourites(context);
             JArray jsonValUsers = JArray.Parse(userJsonAll) as JArray;
             dynamic userssData = jsonValUsers;
-            
+
             foreach (dynamic user in userssData)
             {
                 var User = new User
@@ -74,9 +70,9 @@ namespace Hleb.Classes.Migrations
                 var Favourite = new Favourite
                 {
                     Id = favourite.Id,
-                    RecipeId=favourite.RecipeId,
-                    UserId=favourite.UserId,
-                    Description=favourite.Description
+                    RecipeId = favourite.RecipeId,
+                    UserId = favourite.UserId,
+                    Description = favourite.Description
                 };
                 Favourites.Add(Favourite);
             }
