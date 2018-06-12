@@ -12,7 +12,6 @@ namespace Hleb.Classes.Model
     {
         public int Id { get; set; }
         public string RecipeId { get; set; }
-       // [NotMapped]
         public int UserId { get; set; }
         public string Description { get; set; }
 

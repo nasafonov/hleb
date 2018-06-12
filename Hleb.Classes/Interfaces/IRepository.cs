@@ -16,7 +16,7 @@ namespace Hleb.Classes.Interfaces
         bool RegisterUser(string name, string lastname, string email, string password);
         //bool RemoveF(Favourite favourite);
         //bool EditdF(Favourite favourite, string description);
-        //bool AddF(Recipe station, string description);
+        bool AddFavourite(string recipeId, int userId, string description);
         
     }
 }

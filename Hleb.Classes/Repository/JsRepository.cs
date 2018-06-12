@@ -22,15 +22,6 @@ namespace Hleb.Classes.Repository
 
         public JsRepository()
         {
-            //Users = new List<User>();
-            //Users.Add(new User
-            //{
-            //    Name = "name",
-            //    Email = "email",
-            //    Password = "PasswordHelpers.GetHash(password)",
-            //    Favourites = new List<Favourite>()
-            //});
-           // Save();
            RestoreFiles();
         }
 
