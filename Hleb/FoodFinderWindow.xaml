@@ -22,11 +22,15 @@
             <RowDefinition Height="9*"/>
 
         </Grid.RowDefinitions>
-        <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click"  >
-            <Button.Background>
-                <ImageBrush ImageSource="Images/хлеб3.png" />
-            </Button.Background>
-        </Button>
+        <StackPanel Orientation="Horizontal">
+            <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/хлеб3.png" />
+                </Button.Background>
+            </Button>
+            <Button Height="50" Width="120" Margin="40 0 0 0" Content="Reset" FontSize="30" Click="Reset_Click"/>
+        </StackPanel>
+        
         <TextBlock Grid.Column="1" Text="Это для теста, донт вори --> "/>
             
         <StackPanel Grid.Column="2">
@@ -72,5 +76,6 @@
             </StackPanel>
         </ScrollViewer>
         
+
     </Grid>
 </Window>

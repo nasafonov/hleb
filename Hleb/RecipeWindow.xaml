@@ -13,15 +13,16 @@
        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="1.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition  Height="1.6*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="4*"/>
+            <RowDefinition Height="1.7*"/>
         </Grid.RowDefinitions>
-        <Image Name="Img" Margin="10" Grid.Row="1"/>
-        <StackPanel Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Image Name="Img" Margin="10" Grid.Row="1" Grid.RowSpan="2"/>
+        <StackPanel Margin="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock FontFamily="Rockwell Nova" Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
             
             <Hyperlink Name="Hyper"  RequestNavigate="Hyperlink_RequestNavigate" FontSize="40" >Click Hear</Hyperlink>
@@ -29,11 +30,17 @@
             <TextBlock Name="rate" FontFamily="Rockwell Nova" Text="Rating - " FontSize="18" TextAlignment="Center" Foreground="Black"/>
         </StackPanel>
 
-        <StackPanel Name="Stack" Grid.Column="1" Grid.RowSpan="3" Margin="20">
-            <TextBlock Text="Ingredients" FontFamily="Rockwell Nova" FontSize="36" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Foreground="Black" />
-            <TextBlock Height="25"/>
-        </StackPanel>
-        <TextBlock Name="nametxt" Margin="5" FontFamily="Rockwell Nova" Text="Name" FontSize="40" FontWeight="Bold" TextAlignment="Center" Foreground="Black" />
+        <TextBlock Margin="10" Grid.Column="1" Text="Ingredients" FontFamily="Rockwell Nova" FontSize="36" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Foreground="Black" />
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="20"> 
+            <StackPanel Name="Stack" >
+                <TextBlock />
+                <TextBlock Height="25"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <TextBlock Name="nametxt" Margin="5" FontFamily="Rockwell Nova" Text="Name" FontSize="38" FontWeight="Bold" TextAlignment="Center" Foreground="Black" TextWrapping="Wrap"/>
+        <Button Name="FavButton" Grid.Row="3" Grid.Column="1" Height="100" Width="300" Content="Add to Recipe Book" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Click="Clic_fav"/>
+        
 
     </Grid>
 </Window>

@@ -60,7 +60,17 @@ namespace Hleb
 
             rate.Text += Math.Round(rc.Recipe.Rating);
 
+           
 
+            
+            
+
+
+        }
+
+        private void Clic_fav(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
