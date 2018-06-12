@@ -1,5 +1,7 @@
 ﻿using Hleb.Classes.Helpers;
+using Hleb.Classes.Interfaces;
 using Hleb.Classes.Model;
+using Hleb.Classes.Repository;
 using Hleb.Model;
 using System;
 using System.Collections.Generic;
@@ -9,15 +11,18 @@ using System.Threading.Tasks;
 
 namespace Hleb.Classes
 {
-    public class DbRepository
+    public class DbRepository: IRepository
     {
         private List<User> Users { get; set; }
         
         public IEnumerable<Favourite> Favourites { get; }
-        public User AutorisedUser { get; set; }
+        public User AuthorizedUser { get; private set; }
         public IList<User> usersdata => Users;
 
         private Context context;
+        private JsRepository _repo;
+
+        private JsRepository GetJsRepository() => _repo ?? (_repo = new JsRepository());
 
         public DbRepository()
         {
@@ -30,10 +35,12 @@ namespace Hleb.Classes
             Users = context.Users.ToList();
         }
 
-        public bool RegisterUser(string name, string email,  string password)
+        public bool RegisterUser(string name, string lastname, string email,  string password)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("User name cannot be empty");
+            if (string.IsNullOrWhiteSpace(lastname))
+                throw new ArgumentException("User lastname cannot be empty");
             if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentException("User email cannot be empty");
             if (string.IsNullOrWhiteSpace(PasswordHelpers.GetHash(password)))
@@ -44,6 +51,7 @@ namespace Hleb.Classes
                 var user = new User()
                 {
                     Name = name,
+                    LastName = lastname,
                     Email = email,
                     Password = PasswordHelpers.GetHash(password),
                     Favourites = new List<Favourite>()
@@ -51,6 +59,9 @@ namespace Hleb.Classes
                 Users.Add(user);
                 context.Users.Add(user);
                 context.SaveChanges();
+                _repo = GetJsRepository();
+                _repo.Users.Add(user);
+                _repo.Save();
                 return true;
             }
             else
@@ -60,10 +71,11 @@ namespace Hleb.Classes
 
         public bool Authorize(string login, string password)
         {
-            var user = context.Users.FirstOrDefault(u => u.Email == login && u.Password == PasswordHelpers.GetHash(password));
+            password = PasswordHelpers.GetHash(password);
+            var user = context.Users.FirstOrDefault(u => u.Email == login && u.Password == password);
             if (user!=null)
             {
-                AutorisedUser = user;
+                AuthorizedUser = user;
                 return true;
             }
             else

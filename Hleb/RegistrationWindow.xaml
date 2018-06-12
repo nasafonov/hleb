@@ -27,7 +27,7 @@
             <PasswordBox Name="textBoxpassword" Width="400" Height="50" FontSize="36"/>
 
             <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Width="360">
-                <Button x:Name="myButton3" Content="Registration" Margin="9" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" BorderBrush="#FFDC0D0D" Foreground="White" Click="Button_Click" >
+                <Button x:Name="RegistrationButton" Content="Registration" Margin="9" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" BorderBrush="#FFDC0D0D" Foreground="White" Click="RegistrationButton_Click" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">

@@ -1,8 +1,8 @@
 [
   {
     "Id": 1,
-    "RecipeId": 1,
+    "RecipeId": "1",
     "UserId": 1,
-    "Description": "nyam"
+    "Description": "dsf"
   }
 ]

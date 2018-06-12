@@ -1,4 +1,5 @@
 ﻿using Hleb.Classes;
+using Hleb.Classes.Interfaces;
 using Hleb.Classes.Repository;
 using System;
 using System.Collections.Generic;
@@ -22,23 +23,29 @@ namespace Hleb
     /// </summary>
     public partial class MainWindow : Window
     {
+        IRepository _repo = Factory.Instance.GetRepository();
+
         public MainWindow()
         {
-           var check = new Checker();
+            //var check = new JsRepository();
+            //var check = new Checker();
             InitializeComponent();           
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            
-                Hide();
+            if(_repo.Authorize(textBoxLogin.Text, textBoxPassword.ToString()))
+            {
                 UserWindow mw = new UserWindow();
                 mw.Show();
                 Close();
-            
+            }
+            else
+                MessageBox.Show("wrong password or email");
+
         }
 
-        private void ButtonRegistration2_Click(object sender, RoutedEventArgs e)
+        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             RegistrationWindow mw = new RegistrationWindow();
