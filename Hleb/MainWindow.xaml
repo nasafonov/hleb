@@ -14,9 +14,9 @@
             <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15" Height="110" Opacity="0.955">
             </Image>
             <TextBlock HorizontalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova" Foreground="White" ><Run Text="Email"/></TextBlock>
-            <TextBox Name="textBoxLogin" Tag="emil" VerticalAlignment="Center" FontSize="22" Width="300" Height="50" FontFamily="Rockwell Nova"/>
+            <TextBox Name="textBoxLogin" Tag="emil" VerticalAlignment="Center" FontSize="40" Width="300" Height="50" FontFamily="Rockwell Nova"/>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova Cond" Foreground="White"><Run Text="Password"/></TextBlock>
-            <PasswordBox  Name="textBoxPassword" VerticalAlignment="Center"  Width="300" Height="50" FontSize="22"/>
+            <PasswordBox  Name="textBoxPassword" VerticalAlignment="Center"  Width="300" Height="50" FontSize="34"/>
             <StackPanel Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="350" >
                 <Button x:Name="ButtonLogin" Content="Login" Height="50" Width="111" FontSize="27" FontFamily="Rockwell Nova" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonLogin_Click" >
                     <Button.Template>
