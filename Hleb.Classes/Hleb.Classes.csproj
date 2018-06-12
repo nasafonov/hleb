@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Favourite.cs" />
+    <Compile Include="Model\Ingredients.cs" />
     <Compile Include="Repository\DbRepository.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
@@ -88,6 +89,7 @@
     <EmbeddedResource Include="Data\users.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Data\Ingredients.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
