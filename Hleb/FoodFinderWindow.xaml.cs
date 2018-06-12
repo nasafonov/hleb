@@ -200,7 +200,6 @@ namespace Hleb
             Scroll.Children.Clear();
             st.Visibility = Visibility.Hidden;
             resultStack.Children.Clear();
-            resultStack.Visibility = System.Windows.Visibility.Collapsed;
             textBox.Text = "";
             Filtertxt.Text = "";
         }
