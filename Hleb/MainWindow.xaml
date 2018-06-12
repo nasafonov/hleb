@@ -18,7 +18,7 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  TextAlignment="Center" FontSize="42" FontWeight="Regular" FontFamily="Rockwell Nova Cond" Foreground="White"><Run Text="Password"/></TextBlock>
             <PasswordBox  Name="textBoxPassword" VerticalAlignment="Center"  Width="300" Height="50" FontSize="22"/>
             <StackPanel Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="350" >
-                <Button x:Name="myButton" Content="Login" Height="50" Width="111" FontSize="27" FontFamily="Rockwell Nova" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonLogin_Click" >
+                <Button x:Name="ButtonLogin" Content="Login" Height="50" Width="111" FontSize="27" FontFamily="Rockwell Nova" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonLogin_Click" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
@@ -47,7 +47,7 @@
                     </Button.Template>
                 </Button>
                 <TextBlock Text="Or" VerticalAlignment="Center" FontSize="20" FontFamily="Rockwell Nova" Foreground="White" Margin="9"/>
-                <Button x:Name="myButton2" Content="Registration" Height="53" Width="195" FontFamily="Rockwell Nova" FontSize="27" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonRegistration2_Click" Background="#FFD63E0B" >
+                <Button x:Name="ButtonRegistration" Content="Registration" Height="53" Width="195" FontFamily="Rockwell Nova" FontSize="27" BorderBrush="#FFDC0D0D" Foreground="White" Click="ButtonRegistration_Click" Background="#FFD63E0B" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
