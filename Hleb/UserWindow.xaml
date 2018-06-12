@@ -33,7 +33,7 @@
                         <ImageBrush ImageSource="Images/sign-out.png" />
                     </Button.Background>
                 </Button>
-                <Button BorderThickness="0"  Height="60" Grid.Column="3" Grid.Row="3" Width="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="9"  >
+                <Button x:Name="Favourite" BorderThickness="0"  Height="60" Grid.Column="3" Grid.Row="3" Width="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="9" Click="Favourite_Click"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Images\lace.png" />
                     </Button.Background>

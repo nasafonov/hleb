@@ -100,10 +100,30 @@ namespace Hleb.Classes
             if (user!=null)
             {
                 AuthorizedUser = user;
+                if (AuthorizedUser.Favourites == null)
+                    AuthorizedUser.Favourites = new List<Favourite>();
+
                 return true;
             }
             else
                 return false;
         }
+        public bool AddFavourite(string recipeId, int userId, string description)
+        {
+            if (string.IsNullOrWhiteSpace(recipeId))
+            {
+                MessageBox.Show("Please choose recipe");
+                return false;
+            }
+            var fav = new Favourite { RecipeId = recipeId, UserId = userId, Description = description };
+            AuthorizedUser.Favourites.Add(fav);
+            context.Favourites.Add(fav);
+            context.SaveChanges();
+            _repo = GetJsRepository();
+            _repo.Favourites.Add(fav);
+            _repo.Save();
+            return true;
+        }
+        
     }
 }
