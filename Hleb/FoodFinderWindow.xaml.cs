@@ -25,6 +25,7 @@ namespace Hleb
         List<string> _ingredients = new List<string>();
         List<Button> _btns = new List<Button>();
 
+
         public FoodFinderWindow()
         {         
             InitializeComponent();
@@ -39,7 +40,14 @@ namespace Hleb
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            if (_btns.Count != 0)
+            {
+                _btns = new List<Button>();
+                _ingredients = new List<string>();
+                Scroll.Children.Clear();
+                st.Visibility = Visibility.Hidden;
+            }
             if (check1.IsChecked == true)
                 _ingredients.Add(check1.Content.ToString());
 
@@ -118,34 +126,37 @@ namespace Hleb
 
                 bt.Click += Bt_Click;
                 bt.Cursor = Cursors.Hand;
-
-                Button Fav = new Button();
-                Fav.VerticalAlignment = VerticalAlignment.Center;
-                Fav.Name = $"Fav_{rec.IDOfRecepies}";
-                Fav.Height = 40;
-                Fav.Width = 150;
-                Fav.Content = "Add to Recipe Book";
-                Fav.Cursor = Cursors.Hand;
-                Fav.Click += Fav_Click;
-
+               
                 grid.Children.Add(bt);
-                grid.Children.Add(Fav);
 
-
-                
-
+               
                 Scroll.Children.Add(grid);
-                Rectangle space = new Rectangle();
-                space.Opacity = 0;
-                space.Height = 20;
-                Scroll.Children.Add(space);
+                
+               
                
             }
 
-            st.Visibility = Visibility.Visible;
-            
 
-            
+            if (_btns.Count == 0)
+            {
+                MessageBoxResult result = MessageBox.Show("No results found.");
+                st.Visibility = Visibility.Hidden;
+                _btns = new List<Button>();
+                _ingredients = new List<string>();
+                Scroll.Children.Clear();
+
+            }
+            else
+            {
+                st.Visibility = Visibility.Visible;
+            }
+
+
+     
+
+
+
+           
             
 
             //Button but = new Button();
@@ -156,10 +167,7 @@ namespace Hleb
 
         }
 
-        private void Fav_Click(object sender, RoutedEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
+        
 
         private void Bt_Click(object sender, RoutedEventArgs e)
         {
@@ -176,6 +184,14 @@ namespace Hleb
             
             //throw new NotImplementedException();
             
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            _btns = new List<Button>();
+            _ingredients = new List<string>();
+            Scroll.Children.Clear();
+            st.Visibility = Visibility.Hidden;
         }
     }
 }
