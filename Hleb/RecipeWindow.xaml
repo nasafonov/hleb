@@ -5,44 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="RecipeWindow">
+        Title="RecipeWindow" MinHeight="700" MinWidth="1200">
     <Window.Background>
         <ImageBrush ImageSource="Images\ll.jpg" />
     </Window.Background>
     <Grid Name="MainGrid" >
-       
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="1.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition  Height="1.6*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition  Height="111*"/>
+            <RowDefinition Height="377*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="182*"/>
         </Grid.RowDefinitions>
-        <Image Name="Img" Margin="10" Grid.Row="1" Grid.RowSpan="2"/>
-        <StackPanel Margin="5" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock FontFamily="Rockwell Nova" Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
+        <Image Name="Img" Margin="10,5.6,10,12" Grid.Row="1"/>
+        <StackPanel  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="111" Width="224" Margin="172,48,172,23.4">
+            <TextBlock FontFamily="Rockwell Nova" Cursor="Hand" Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
             
             <Hyperlink Name="Hyper"  RequestNavigate="Hyperlink_RequestNavigate" FontSize="40" >Click Hear</Hyperlink>
             </TextBlock>
-            <TextBlock Name="rate" FontFamily="Rockwell Nova" Text="Rating - " FontSize="18" TextAlignment="Center" Foreground="Black"/>
+            <TextBlock Name="rate" FontFamily="Rockwell Nova" Text="Rating - " Foreground="White" FontSize="30" TextAlignment="Center" Height="47"/>
         </StackPanel>
 
-        <TextBlock Margin="10" Grid.Column="1" Text="Ingredients" FontFamily="Rockwell Nova" FontSize="36" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Foreground="Black" />
-        <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="20"> 
+        <TextBlock  Grid.Column="1" Text="Ingredients" FontFamily="Rockwell Nova" FontSize="45" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Foreground="White" Margin="0,0,-0.4,4.4" />
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="20,15.6,19.6,22" Foreground="White" FontSize="40" FontWeight="Bold">
             <StackPanel Name="Stack" >
                 <TextBlock />
                 <TextBlock Height="25"/>
             </StackPanel>
         </ScrollViewer>
-        
-        <TextBlock Name="nametxt" Margin="5" FontFamily="Rockwell Nova" Text="Name" FontSize="38" FontWeight="Bold" TextAlignment="Center" Foreground="Black" TextWrapping="Wrap"/>
-        <StackPanel Name="FavAdding" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1">
-            <TextBlock Margin="5" Text="Description:"/>
-            <TextBox x:Name="Description" Margin="5"/>
-            <Button Name="FavButton"  Content=" Add to Recipe Book "  FontSize="30" FontWeight="Bold" Click="Clic_fav"/>
+
+        <TextBlock Name="nametxt" Margin="5,5,5,9.4"  FontFamily="Rockwell Nova" Text="Name" FontSize="36" FontWeight="Bold" TextAlignment="Center" Foreground="White" TextWrapping="Wrap"/>
+        <StackPanel Name="FavAdding" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="152,1,151.6,0.4" Grid.RowSpan="2" Height="181" Width="322">
+            <TextBlock  Text=" Description:" Foreground="White" FontSize="30" FontWeight="Bold" />
+            <TextBox x:Name="Description" Height="40" Margin="9"/>
+            <Button Name="FavButton" Cursor="Hand" Margin="9"  Content=" Add to Recipe Book "  FontSize="30" FontWeight="Bold" Foreground="White" Click="Clic_fav" Height="66">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                            </Border.Background>
+                            <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState Name="Normal">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

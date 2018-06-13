@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-      Title="InfoWindow" Height="500" Width="700">
+      Title="InfoWindow" Height="500" Width="700" MinHeight="500" MinWidth="700">
     <Window.Background>
         <ImageBrush ImageSource="Images\ll.jpg" />
     </Window.Background>
@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <Image Source="Images\хлеб2.png" Opacity="0.2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="100" Margin="0,99,0,0" Grid.ColumnSpan="4" Grid.RowSpan="5"/>
         <TextBlock Text="Information about our Company:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="37" Foreground="White" ></TextBlock>
-        <Button Name="ButtonCatalog" BorderThickness="0"  Margin="4" Height="60" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread_Click"  >
+        <Button Name="ButtonCatalog" BorderThickness="0" Cursor="Hand"  Margin="4" Height="60" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread_Click"  >
             <Button.Background>
                 <ImageBrush ImageSource="Images/хлеб3.png" />
             </Button.Background>

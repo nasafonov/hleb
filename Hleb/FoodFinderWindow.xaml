@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="FoodFinder" Height="800" Width="1000"  >
+        Title="FoodFinder" Height="800" Width="1000" MinHeight="800" MinWidth="1000" >
     <Window.Background>
         <ImageBrush ImageSource="Images\ll.jpg" />
     </Window.Background>
@@ -21,12 +21,12 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click" >
+        <Button Name="ButtonCatalog" Margin="4" Cursor="Hand" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="Images/хлеб3.png" />
             </Button.Background>
         </Button>
-        <Button Width="120" Grid.Column="1" Content="Reset" FontSize="32" Click="Reset_Click" VerticalAlignment="Top" Foreground="White" Margin="0,91,0,0" Height="58">
+        <Button Width="120" Grid.Column="1" Cursor="Hand" Content="Reset" FontSize="32" Click="Reset_Click" VerticalAlignment="Top" Foreground="White" Margin="0,86,0,0" Height="63">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="25" BorderBrush="White" BorderThickness="2" Width="Auto" Margin="0,0,2,0">
@@ -54,7 +54,7 @@ Storyboard.TargetProperty="Color" To="#FFC20E0E" />
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button Name="but" Content="Find recipes" Grid.Column="4" FontSize="34" Click="FindButton_Click" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0.4,89,-0.4,43.8" Width="200" Height="60">
+        <Button Name="but" Content="Find recipes" Grid.Column="4" FontSize="34" Click="FindButton_Click" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0,85,0,0" Width="200" Height="64" Grid.RowSpan="2">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="25" BorderBrush="White" BorderThickness="2" Width="Auto" Margin="0,0,2,0">
@@ -89,18 +89,18 @@ Storyboard.TargetProperty="Color" To="#FFC20E0E" />
         </ScrollViewer>
         <StackPanel Orientation="Horizontal"
 Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top">
-            <StackPanel Margin="20 40 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <TextBlock Name="Filtertxt" Height="50" Width="350" Text="" FontSize="15" FontWeight="Bold" TextWrapping="Wrap"/>
-                <TextBox Width="412" Height="60" Padding="5, 3, 5, 3" FontSize="40" 
-KeyUp="TextBox_KeyUp" Name="textBox" Grid.Column="1" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="en-US"/>
+            <StackPanel Margin="20 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" >
+                <TextBlock x:Name="Filtertxt" Height="77" Width="408" Text="" FontSize="25" FontWeight="Bold" Foreground="White" TextWrapping="Wrap"/>
+                <TextBox Width="412" Height="62" Padding="5, 3, 5, 3" FontSize="40" 
+KeyUp="TextBox_KeyUp" x:Name="textBox" Grid.Column="1" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="en-US"/>
                 <Border Width="412" Height="170" BorderBrush="Black" 
-BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2" Name="bord" Visibility="Hidden">
+BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="bord" Visibility="Hidden" Background="White">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <StackPanel Name="resultStack"></StackPanel>
+                        <StackPanel x:Name="resultStack"/>
                     </ScrollViewer>
                 </Border>
             </StackPanel>
-            <Button Click="AddButton_Click" Content="Add" FontSize="35" Width="120" Margin="20,92,0,0" VerticalAlignment="Top" Foreground="White" Background="White" Height="57">
+            <Button Click="AddButton_Click" Content="Add"  FontSize="35" Cursor="Hand" Width="120" Margin="20,85,0,0" VerticalAlignment="Top" Foreground="White" Background="White" Height="64">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="25" BorderBrush="White" BorderThickness="2" Width="Auto" Margin="0,0,2,0">
