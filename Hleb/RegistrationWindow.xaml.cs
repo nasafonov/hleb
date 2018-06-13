@@ -1,6 +1,7 @@
 ﻿using Hleb.Classes;
 using Hleb.Classes.DTO;
 using Hleb.Classes.Interfaces;
+using Hleb.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,21 +25,27 @@ namespace Hleb
     {
         IRepository _repo = Factory.Instance.GetRepository();
         VKAPI _vkClient = new VKAPI();
-
+        CurrentUser current = new CurrentUser();
+      
         public event Action RegistrationFinished;
 
         public RegistrationWindow()
         {
             InitializeComponent();
+            
+            _vkClient.CheckAuthorization();
         }
         private void Authorize()
         {
+
             var browserWindow = new BrowserWindow();
 
             browserWindow.OnRedirected += _vkClient.AuthorizationRedirect;
+          
             browserWindow.Show();
 
             browserWindow.NavigateTo(_vkClient.GetAuthUrl(), _vkClient.RedirectPage);
+           
         }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)
@@ -52,8 +59,16 @@ namespace Hleb
 
         private void ButtonVK_Click(object sender, RoutedEventArgs e)
         {
+        
             Authorize();
+
+
+            
+
+
         }
+
+
 
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
         {

@@ -51,18 +51,7 @@ namespace Hleb
 
         }
 
-        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
-        {
-            if(_repo.Authorize(textBoxLogin.Text, textBoxPassword.ToString()))
-            {
-                UserWindow mw = new UserWindow();
-                mw.Show();
-                Close();
-            }
-            else
-                MessageBox.Show("try input again");
-
-        }
+    
 
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {

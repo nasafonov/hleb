@@ -66,8 +66,12 @@ namespace Hleb.Classes.DTO
             {
                 long.TryParse(m.Groups[1].Value, out _userId);
             }
-            OnAuthorized?.Invoke();
+
+          
+           
+           
         }
+        
         public bool IsAuthorized
         {
             get
@@ -102,24 +106,24 @@ namespace Hleb.Classes.DTO
                  
                 });
         }
-        public async Task<User> GetFriends()
+        public User GetFriends()
         {
             if (!IsAuthorized)
                 return null;
 
             using (var client = new HttpClient())
             {
-                var resultStr = await client.GetStringAsync(
+                var resultStr =  client.GetStringAsync (
                     BuildUrl(string.Format(VkApiMethodTemplate, "users.get"),
                     new KeyValuePair<string, string>[] {
                         new KeyValuePair<string, string>("access_token", _token),
                         new KeyValuePair<string, string>("user_id", _userId.ToString()),
                         new KeyValuePair<string, string>("v", Version),
                     
-                    }));
-                var friendsResponse = JsonConvert.DeserializeObject<User>(resultStr);
+                    })).Result;
+                var friendsResponse = JsonConvert.DeserializeObject<Response>(resultStr);
 
-                return friendsResponse;
+                return friendsResponse.Users[0];
             }
         }
     }

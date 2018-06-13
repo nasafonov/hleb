@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Hleb.Classes.DTO;
+using Hleb.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,28 +23,51 @@ namespace Hleb
     /// </summary>
     public partial class BrowserWindow : Window
     {
+        VKAPI vKAPI = new VKAPI();
+        RegistrationWindow window = new RegistrationWindow();
         public BrowserWindow()
         {
             InitializeComponent();
         }
         public event Action<Uri> OnRedirected;
-
+        public event Action<string> Name;
       
         string _redirectPage;
+        private void GetUser(Uri uri)
+        {
+            using (var client = new HttpClient())
+            {
+                var result = client.GetStringAsync(uri).Result;
+                var friendsResponse = JsonConvert.DeserializeObject<Response>(result);
+                User user = friendsResponse.Users[0];
+                
+               
+            }
+        }
 
         private void webBrowser_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
             if (e.Uri.ToString().StartsWith(_redirectPage))
             {
-                OnRedirected?.Invoke(e.Uri);
+
+                vKAPI.AuthorizationRedirect(e.Uri);
+                //нужно вернуть имя этого юзера в текстбокс окна регистрации
+                var user = vKAPI.GetFriends();
+                Name?.Invoke(user.Name);
+                window.textBoxname.Text = user.Name;
+            
                 Close();
+
             }
+
         }
 
         public void NavigateTo(string page, string redirectPage)
         {
             _redirectPage = redirectPage;
             webBrowser.Navigate(page);
+
+           
         }
     }
 }
