@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="FoodFinder" Height="800" Width="1000">
-    <Grid Name="MainGrid" Background="#FFCDBF96">
+        Title="FoodFinder" Height="800" Width="1000" Background="#FFFFB476" >
+    
+    <Grid Name="MainGrid" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -15,32 +16,78 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="9*"/>
 
         </Grid.RowDefinitions>
-        <Button Name="ButtonCatalog" Margin="4" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click"  >
-            <Button.Background>
-                <ImageBrush ImageSource="Images/хлеб3.png" />
-            </Button.Background>
-        </Button>
-        <TextBlock Grid.Column="1" Text="Это для теста, донт вори --> "/>
-            
-        <StackPanel Grid.Column="2">
-            <CheckBox Name="check1" Content="Beef"/>
-            <CheckBox Name="check2" Content="Apple"/>
-            <CheckBox Name="check3" Content="Potato"/>
-            <CheckBox Name="check4" Content="Bread"/>
-            <CheckBox Name="check5" Content="Cheese"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/хлеб3.png" />
+                </Button.Background>
+            </Button>
+            <Button Height="50" Width="120" Margin="40 0 0 0" Content="Reset" FontSize="30" Click="Reset_Click"/>
         </StackPanel>
-        <Button Name="but" Content="Find recipes" Grid.Column="3" FontSize="14" Margin="5" Click="FindButton_Click" Cursor="Hand"/>
-        <Image Source="Images/хлеб2.png" Opacity="0.7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="4"/>
+
+        
+
+
+        <Button Name="but" Content="Find recipes" Grid.Column="3" FontSize="34" Margin="5" Click="FindButton_Click" Cursor="Hand" Foreground="White">
+        <Button.Template>
+            <ControlTemplate TargetType="Button">
+                <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
+                    <Border.Background>
+                        <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                    </Border.Background>
+                    <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="CommonStates">
+                            <VisualState Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState Name="Normal">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFC20E0E" />
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+        </Button>
+        <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="4" Opacity="0.66"/>
         <ScrollViewer Name="st" Grid.Row="1" Background="#FFCDBF96" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "4" Visibility="Hidden">
             <StackPanel Name="Scroll">
                 
 
             </StackPanel>
         </ScrollViewer>
+
+
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <StackPanel  Margin="0 40 0 0" >
+                <TextBlock Name="Filtertxt" Height="50" Width="300" Text="" Margin="0 0 0 20" FontSize="15" FontWeight="Bold" TextWrapping="Wrap"/>
+                <TextBox Width="300" Height="30" Padding="5, 3, 5, 3"    
+         KeyUp="TextBox_KeyUp" Name="textBox" Grid.Column="1" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="en-US"/>
+                <Border Width="298" Height="150" BorderBrush="Black"   
+        BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2" Name="bord" Visibility="Hidden">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Name="resultStack"></StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </StackPanel>
+            <Button Click="AddButton_Click" Content="Add" FontSize="20" Height="30" Width="100" VerticalAlignment="Top" Margin="20 110 0 0" FontWeight="Bold"/>
+        </StackPanel>
         
+
+
+
     </Grid>
 </Window>

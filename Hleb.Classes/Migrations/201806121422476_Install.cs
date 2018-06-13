@@ -13,12 +13,12 @@ namespace Hleb.Classes.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         RecipeId = c.String(),
+                        UserId = c.Int(nullable: false),
                         Description = c.String(),
-                        User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.User_Id)
-                .Index(t => t.User_Id);
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Users",
@@ -26,6 +26,7 @@ namespace Hleb.Classes.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        LastName = c.String(),
                         Email = c.String(),
                         Password = c.String(),
                     })
@@ -35,8 +36,8 @@ namespace Hleb.Classes.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Favourites", "User_Id", "dbo.Users");
-            DropIndex("dbo.Favourites", new[] { "User_Id" });
+            DropForeignKey("dbo.Favourites", "UserId", "dbo.Users");
+            DropIndex("dbo.Favourites", new[] { "UserId" });
             DropTable("dbo.Users");
             DropTable("dbo.Favourites");
         }

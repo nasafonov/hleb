@@ -31,8 +31,24 @@ namespace Hleb
 
         public MainWindow()
         {
-            var check = new JsRepository();
-            InitializeComponent();           
+            //var check = new JsRepository();
+            //var check = new Checker();
+            InitializeComponent();
+            
+
+        }
+
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if(_repo.Authorize(textBoxLogin.Text, textBoxPassword.ToString()))
+            {
+                UserWindow mw = new UserWindow();
+                mw.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("try input again");
+
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)

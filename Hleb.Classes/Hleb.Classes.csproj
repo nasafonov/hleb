@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checker.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="DTO\API.cs" />
     <Compile Include="DTO\ListOfModelOfRecipes.cs" />
@@ -61,16 +62,13 @@
     <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="MainLogic\AlgorithmRecipe.cs" />
-    <Compile Include="Migrations\201806101900025_Install.cs" />
-    <Compile Include="Migrations\201806101900025_Install.Designer.cs">
-      <DependentUpon>201806101900025_Install.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806102129532_UserId.cs" />
-    <Compile Include="Migrations\201806102129532_UserId.Designer.cs">
-      <DependentUpon>201806102129532_UserId.cs</DependentUpon>
+    <Compile Include="Migrations\201806121422476_Install.cs" />
+    <Compile Include="Migrations\201806121422476_Install.Designer.cs">
+      <DependentUpon>201806121422476_Install.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Favourite.cs" />
+    <Compile Include="Model\Ingredients.cs" />
     <Compile Include="Repository\DbRepository.cs" />
     <Compile Include="Model\Recipe.cs" />
     <Compile Include="Model\User.cs" />
@@ -81,9 +79,17 @@
     <Resource Include="Images\Home.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806121422476_Install.resx">
+      <DependentUpon>201806121422476_Install.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Data\favourites.json" />
-    <None Include="Data\users.json" />
+    <EmbeddedResource Include="Data\favourites.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\users.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Data\Ingredients.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -91,14 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\хлеб2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806101900025_Install.resx">
-      <DependentUpon>201806101900025_Install.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806102129532_UserId.resx">
-      <DependentUpon>201806102129532_UserId.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,13 +7,13 @@ namespace Hleb.Classes.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UserId : IMigrationMetadata
+    public sealed partial class Install : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UserId));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Install));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806102129532_UserId"; }
+            get { return "201806121422476_Install"; }
         }
         
         string IMigrationMetadata.Source

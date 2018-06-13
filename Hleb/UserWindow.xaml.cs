@@ -55,5 +55,10 @@ namespace Hleb
             mw.Show();
             Close();
         }
+
+        private void Favourite_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using Hleb.Classes.DTO;
+using Hleb.Classes.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -24,10 +27,25 @@ namespace Hleb
         APIrequest _request = new API();
         List<string> _ingredients = new List<string>();
         List<Button> _btns = new List<Button>();
+        List<string> _ingr = new List<string>();
+        
+
 
         public FoodFinderWindow()
         {         
             InitializeComponent();
+            List<Ingredients> ingr = new List<Ingredients>();
+
+            using (var sr = new StreamReader(@"../../../Hleb.Classes\Data\Ingredients.json"))
+            {
+                using (var reader = new JsonTextReader(sr))
+                {
+                    var serializer = new JsonSerializer();
+                    ingr = serializer.Deserialize<List<Ingredients>>(reader);
+                }
+            }
+            foreach (var ing in ingr)
+                _ingr.Add(ing.Name);
         }
         private void ButtonBread2_Click(object sender, RoutedEventArgs e)
         {
@@ -39,18 +57,15 @@ namespace Hleb
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (check1.IsChecked == true)
-                _ingredients.Add(check1.Content.ToString());
 
-            if (check2.IsChecked == true)
-                _ingredients.Add(check2.Content.ToString());
-            if (check3.IsChecked == true)
-                _ingredients.Add(check3.Content.ToString());
-            if (check4.IsChecked == true)
-                _ingredients.Add(check4.Content.ToString());
-            if (check5.IsChecked == true)
-                _ingredients.Add(check5.Content.ToString());
+            if (_btns.Count != 0)
+            {
+                _btns = new List<Button>();
+                _ingredients = new List<string>();
+                Scroll.Children.Clear();
+                st.Visibility = Visibility.Hidden;
+            }
+            
             
             foreach (var rec in _request.Filter(_ingredients).ModelOfRecipes)
             {
@@ -118,34 +133,37 @@ namespace Hleb
 
                 bt.Click += Bt_Click;
                 bt.Cursor = Cursors.Hand;
-
-                Button Fav = new Button();
-                Fav.VerticalAlignment = VerticalAlignment.Center;
-                Fav.Name = $"Fav_{rec.IDOfRecepies}";
-                Fav.Height = 40;
-                Fav.Width = 150;
-                Fav.Content = "Add to Recipe Book";
-                Fav.Cursor = Cursors.Hand;
-                Fav.Click += Fav_Click;
-
+               
                 grid.Children.Add(bt);
-                grid.Children.Add(Fav);
 
-
-                
-
+               
                 Scroll.Children.Add(grid);
-                Rectangle space = new Rectangle();
-                space.Opacity = 0;
-                space.Height = 20;
-                Scroll.Children.Add(space);
+                
+               
                
             }
 
-            st.Visibility = Visibility.Visible;
-            
 
-            
+            if (_btns.Count == 0)
+            {
+                MessageBoxResult result = MessageBox.Show("No results found.");
+                st.Visibility = Visibility.Hidden;
+                _btns = new List<Button>();
+                _ingredients = new List<string>();
+                Scroll.Children.Clear();
+
+            }
+            else
+            {
+                st.Visibility = Visibility.Visible;
+            }
+
+
+     
+
+
+
+           
             
 
             //Button but = new Button();
@@ -156,10 +174,7 @@ namespace Hleb
 
         }
 
-        private void Fav_Click(object sender, RoutedEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
+        
 
         private void Bt_Click(object sender, RoutedEventArgs e)
         {
@@ -176,6 +191,102 @@ namespace Hleb
             
             //throw new NotImplementedException();
             
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            _btns = new List<Button>();
+            _ingredients = new List<string>();
+            Scroll.Children.Clear();
+            st.Visibility = Visibility.Hidden;
+            resultStack.Children.Clear();
+            textBox.Text = "";
+            Filtertxt.Text = "";
+        }
+
+
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            bool found = false;
+            var border = (resultStack.Parent as ScrollViewer).Parent as Border;
+            
+
+            string query = (sender as TextBox).Text;
+
+            if (query.Length == 0)
+            {
+                // Clear   
+                resultStack.Children.Clear();
+                border.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                border.Visibility = System.Windows.Visibility.Visible;
+            }
+
+            // Clear the list   
+            resultStack.Children.Clear();
+
+            // Add the result   
+            foreach (var obj in _ingr)
+            {
+                if (obj.ToLower().StartsWith(query.ToLower()))
+                {
+                    // The word starts with this... Autocomplete must work   
+                    addItem(obj);
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                resultStack.Children.Add(new TextBlock() { Text = "No results found." });
+            }
+        }
+        public void addItem(string text)
+        {
+            TextBlock block = new TextBlock();
+
+            // Add the text   
+            block.Text = text;
+
+            // A little style...   
+            block.Margin = new Thickness(2, 3, 2, 3);
+            block.Cursor = Cursors.Hand;
+
+            // Mouse events   
+            block.MouseLeftButtonUp += (sender, e) =>
+            {
+                textBox.Text = (sender as TextBlock).Text;
+            };
+
+            block.MouseEnter += (sender, e) =>
+            {
+                TextBlock b = sender as TextBlock;
+                b.Background = Brushes.PeachPuff;
+            };
+
+            block.MouseLeave += (sender, e) =>
+            {
+                TextBlock b = sender as TextBlock;
+                b.Background = Brushes.Transparent;
+            };
+
+            // Add to the panel   
+            resultStack.Children.Add(block);
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Filtertxt.Text += $" {textBox.Text}";
+            _ingredients.Add(textBox.Text);
+            resultStack.Children.Clear();
+            //resultStack.Visibility = System.Windows.Visibility.Collapsed;
+            bord.Visibility = Visibility.Collapsed;
+            textBox.Text = "";
+
         }
     }
 }

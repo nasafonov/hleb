@@ -12,24 +12,23 @@ namespace Hleb.Classes.Repository
 {
     public class JsRepository
     {
-        private List<User> Users { get; set; }
-        private List<Favourite> Favourites { get; set; }
+        public List<User> Users { get; set; }
+        public List<Favourite> Favourites { get; set; }
 
+        
         public User AutorisedUser { get; set; }
-        public IList<User> usersdata => Users;
+
+
 
         public JsRepository()
         {
-            //Users = new List<User>() { new User { Id = 1, Email = "1", Password = "1", Name = "Name" } };
-            //Favourites = new List<Favourite>() { new Favourite { Description = "nyam", UserId = 1, Id = 1 } };
-            //Save();
-            RestoreFiles();
+           RestoreFiles();
         }
 
         public void RestoreFiles()
         {
-            Favourites = RestoreList<Favourite>("../../favourites.json");
-            Users = RestoreList<User>("../../users.json");
+            Favourites = RestoreList<Favourite>(@"../../../Hleb.Classes\Data\favourites.json");
+            Users = RestoreList<User>(@"../../../Hleb.Classes\Data\users.json");
             foreach (var user in Users)
             {
                 user.Favourites = new List<Favourite>();
@@ -53,6 +52,7 @@ namespace Hleb.Classes.Repository
                 }
             }
         }
+
         public void SaveList<T>(string fileName, List<T> list)
         {
             using (var sw = new StreamWriter(fileName))
@@ -68,8 +68,9 @@ namespace Hleb.Classes.Repository
 
         public void Save()
         {
-            SaveList("../../users.json", Users);
-            SaveList("../../favourites.json", Favourites);
+            SaveList(@"../../../Hleb.Classes\Data\users.json", Users);
+            SaveList(@"../../../Hleb.Classes\Data\favourites.json", Favourites);
         }
+      
     }
 }

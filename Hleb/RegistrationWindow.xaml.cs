@@ -1,4 +1,6 @@
-﻿using Hleb.Classes.DTO;
+﻿using Hleb.Classes;
+using Hleb.Classes.DTO;
+using Hleb.Classes.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,11 @@ namespace Hleb
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        IRepository _repo = Factory.Instance.GetRepository();
         VKAPI _vkClient = new VKAPI();
+
+        public event Action RegistrationFinished;
+
         public RegistrationWindow()
         {
             InitializeComponent();
@@ -42,19 +48,23 @@ namespace Hleb
             mw.Show();
             Close();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("you're sucsessfully loged in");
-            Hide();
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            Close();
-        }
+        
 
         private void ButtonVK_Click(object sender, RoutedEventArgs e)
         {
             Authorize();
+        }
+
+        private void RegistrationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(_repo.RegisterUser(textBoxname.Text, textBoxname2.Text, textBoxemail.Text, textBoxpassword.ToString()))
+            {
+                MessageBox.Show("you're sucsessfully loged in");
+                RegistrationFinished?.Invoke();
+                Close();
+            }  
+            else
+                MessageBox.Show("User with this email alriedy exist");
         }
     }
 }
