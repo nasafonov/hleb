@@ -143,5 +143,13 @@ namespace Hleb
             if (_repo.EditFavourite(recipeId, _repo.AuthorizedUser.Id, description))
                 MessageBox.Show("Editeded");
         }
+
+        private void ButtonCatalog3_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            UserWindow us = new UserWindow();
+            us.Show();
+            Close();
+        }
     }
 }

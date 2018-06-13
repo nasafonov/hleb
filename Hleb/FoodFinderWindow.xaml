@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="FoodFinder" Height="800" Width="1000" Background="#FFFFB476" >
-
+        Title="FoodFinder" Height="800" Width="1000"  >
+    <Window.Background>
+        <ImageBrush ImageSource="Images\ll.jpg" />
+    </Window.Background>
     <Grid Name="MainGrid" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>

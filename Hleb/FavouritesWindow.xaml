@@ -16,11 +16,15 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-
+        <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonCatalog3_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Images/хлеб3.png" />
+            </Button.Background>
+        </Button>
         <Button x:Name="Edit"  Content="Edit" Margin="9" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" BorderBrush="#FFDC0D0D"  Foreground="White" Click="Edit_Click"  >
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -77,10 +81,9 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <TextBlock Text="Your Favourite recepies:" FontSize="40" Grid.ColumnSpan="2" TextAlignment="Center" Foreground="White" FontFamily="Rockwell Nova"></TextBlock>
-        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <TextBlock Text="Your Favourite recepies:" FontSize="50" Grid.ColumnSpan="2" Grid.Column="1" TextAlignment="Center" Foreground="White" FontFamily="Rockwell Nova" Margin="0,0,163.6,0"></TextBlock>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="0,0,353.6,0.4">
             <StackPanel Name="Stack">
-                
             </StackPanel>
         </ScrollViewer>
     </Grid>
