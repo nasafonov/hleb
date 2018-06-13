@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="Registration" Height="530" Width="700">
+        Title="Registration" Height="530" Width="700" MinHeight="530" MinWidth="700">
     <Window.Background>
         <ImageBrush ImageSource="Images\ll.jpg" />
     </Window.Background>

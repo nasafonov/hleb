@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-         Title="UserWindow" Height="450" Width="350">
+         Title="UserWindow" Height="450" Width="350" MinHeight="450" MinWidth="350">
     <Window.Background>
         <ImageBrush ImageSource="Images\dd.jpg" />
     </Window.Background>
