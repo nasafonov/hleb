@@ -6,88 +6,128 @@
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
         Title="FoodFinder" Height="800" Width="1000" Background="#FFFFB476" >
-    
+
     <Grid Name="MainGrid" >
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="9*"/>
-
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click"  >
-                <Button.Background>
-                    <ImageBrush ImageSource="Images/хлеб3.png" />
-                </Button.Background>
-            </Button>
-            <Button Height="50" Width="120" Margin="40 0 0 0" Content="Reset" FontSize="30" Click="Reset_Click"/>
-        </StackPanel>
-
-        
-
-
-        <Button Name="but" Content="Find recipes" Grid.Column="3" FontSize="34" Margin="5" Click="FindButton_Click" Cursor="Hand" Foreground="White">
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
-                    <Border.Background>
-                        <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
-                    </Border.Background>
-                    <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup Name="CommonStates">
-                            <VisualState Name="MouseOver">
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
-                                </Storyboard>
-                            </VisualState>
-                            <VisualState Name="Normal">
-                                <Storyboard>
-                                    <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFC20E0E" />
-                                </Storyboard>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-                </Border>
-            </ControlTemplate>
-        </Button.Template>
+        <Button Name="ButtonCatalog" Margin="4" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Images/хлеб3.png" />
+            </Button.Background>
         </Button>
-        <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="4" Opacity="0.66"/>
+        <Button Width="120" Grid.Column="1" Content="Reset" FontSize="32" Click="Reset_Click" VerticalAlignment="Top" Foreground="White" Margin="0,91,0,0" Height="58">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="25" BorderBrush="White" BorderThickness="2" Width="Auto" Margin="0,0,2,0">
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                        </Border.Background>
+                        <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BorderColor" 
+Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BorderColor" 
+Storyboard.TargetProperty="Color" To="#FFC20E0E" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Name="but" Content="Find recipes" Grid.Column="4" FontSize="34" Click="FindButton_Click" Cursor="Hand" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0.4,89,-0.4,43.8" Width="200" Height="60">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="25" BorderBrush="White" BorderThickness="2" Width="Auto" Margin="0,0,2,0">
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                        </Border.Background>
+                        <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BorderColor" 
+Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BorderColor" 
+Storyboard.TargetProperty="Color" To="#FFC20E0E" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.66" Grid.Column="2" Margin="97,163.2,138.6,236.4"/>
         <ScrollViewer Name="st" Grid.Row="1" Background="#FFCDBF96" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "4" Visibility="Hidden">
             <StackPanel Name="Scroll">
-                
-
             </StackPanel>
         </ScrollViewer>
-
-
-
-
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <StackPanel  Margin="0 40 0 0" >
-                <TextBlock Name="Filtertxt" Height="50" Width="300" Text="" Margin="0 0 0 20" FontSize="15" FontWeight="Bold" TextWrapping="Wrap"/>
-                <TextBox Width="300" Height="30" Padding="5, 3, 5, 3"    
-         KeyUp="TextBox_KeyUp" Name="textBox" Grid.Column="1" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="en-US"/>
-                <Border Width="298" Height="150" BorderBrush="Black"   
-        BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2" Name="bord" Visibility="Hidden">
+        <StackPanel Orientation="Horizontal"
+Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top">
+            <StackPanel Margin="20 40 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <TextBlock Name="Filtertxt" Height="50" Width="350" Text="" FontSize="15" FontWeight="Bold" TextWrapping="Wrap"/>
+                <TextBox Width="412" Height="60" Padding="5, 3, 5, 3" FontSize="40" 
+KeyUp="TextBox_KeyUp" Name="textBox" Grid.Column="1" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="en-US"/>
+                <Border Width="298" Height="150" BorderBrush="Black" 
+BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2" Name="bord" Visibility="Hidden">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="resultStack"></StackPanel>
                     </ScrollViewer>
                 </Border>
             </StackPanel>
-            <Button Click="AddButton_Click" Content="Add" FontSize="20" Height="30" Width="100" VerticalAlignment="Top" Margin="20 110 0 0" FontWeight="Bold"/>
+            <Button Click="AddButton_Click" Content="Add" FontSize="35" Width="120" Margin="20,92,0,0" VerticalAlignment="Top" Foreground="White" Background="White" Height="57">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="25" BorderBrush="White" BorderThickness="2" Width="Auto" Margin="0,0,2,0">
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                            </Border.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" 
+Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor" 
+Storyboard.TargetProperty="Color" To="#FFC20E0E" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
         </StackPanel>
-        
-
-
-
     </Grid>
+
 </Window>
