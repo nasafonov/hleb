@@ -14,6 +14,7 @@ namespace Hleb.Classes.DTO
 {
   public  class VKAPI
     {
+        
         public event Action OnAuthorized;
         public string RedirectPage => "https://oauth.vk.com/blank.html";
 
@@ -98,7 +99,7 @@ namespace Hleb.Classes.DTO
                     new KeyValuePair<string, string>("response_type", "token"),
                     new KeyValuePair<string, string>("client_id", _clientId),
                     new KeyValuePair<string, string>("redirect_url", RedirectPage),
-                    new KeyValuePair<string, string>("scope", ((int)VkScope.Status | (int)VkScope.Friends).ToString())
+                 
                 });
         }
         public async Task<User> GetFriends()
@@ -117,6 +118,7 @@ namespace Hleb.Classes.DTO
                     
                     }));
                 var friendsResponse = JsonConvert.DeserializeObject<User>(resultStr);
+
                 return friendsResponse;
             }
         }

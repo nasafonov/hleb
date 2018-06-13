@@ -28,8 +28,8 @@ namespace Hleb.Classes.Repository
 
         public void RestoreFiles()
         {
-            Favourites = RestoreList<Favourite>("favourites.json");
-            Users = RestoreList<User>("users.json");
+            Favourites = RestoreList<Favourite>("../../favourites.json");
+            Users = RestoreList<User>("../../users.json");
             foreach (var user in Users)
             {
                 user.Favourites = new List<Favourite>();
@@ -68,8 +68,8 @@ namespace Hleb.Classes.Repository
 
         public void Save()
         {
-            SaveList("users.json", Users);
-            SaveList("favourites.json", Favourites);
+            SaveList("../../users.json", Users);
+            SaveList("../../favourites.json", Favourites);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Hleb
     {
         public MainWindow()
         {
-            var check = new JsRepository();
+           // var check = new JsRepository();
             InitializeComponent();           
         }
 
