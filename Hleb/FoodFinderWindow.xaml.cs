@@ -31,7 +31,7 @@ namespace Hleb
         List<string> _ingredientsData = new List<string>();
         ILogic _logic = new Json();
 
-
+        
         public FoodFinderWindow()
         {         
             InitializeComponent();           
@@ -45,8 +45,12 @@ namespace Hleb
             us.Show();
             Close();
         }
-
-        private void FindButton_Click(object sender, RoutedEventArgs e)
+        private ListOfModelOfRecipes Request(object _ingredients)
+        {                     
+            return _request.Filter((List<string>)_ingredients);
+        }
+        
+        private async void FindButton_Click(object sender, RoutedEventArgs e)
         {
             bool check = true;
             if (_btns.Count != 0)
@@ -65,11 +69,17 @@ namespace Hleb
                 Scroll.Children.Clear();
                 check = false;
             }
+            
 
             if (check)
-                foreach (var rec in _request.Filter(_ingredients).ModelOfRecipes)
+            {
+                var task = Task.Factory.StartNew(Request, _ingredients);
+                WindowF.Cursor = Cursors.Wait;
+                var result = await task;               
+                foreach (var rec in result.ModelOfRecipes)
                 {
 
+                    WindowF.Cursor = Cursors.Arrow;
                     Grid grid = new Grid();
 
                     Rectangle rect = new Rectangle();
@@ -127,6 +137,7 @@ namespace Hleb
                     grid.Children.Add(bt);
                     Scroll.Children.Add(grid);
                 }
+            }
 
             if (_btns.Count == 0 && check)
             {

@@ -2,6 +2,7 @@
 using Hleb.Classes.DTO;
 using Hleb.Classes.Interfaces;
 using Hleb.Classes.MainLogic;
+using Hleb.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +31,21 @@ namespace Hleb
         List<ListOfRecepies> rc = new List<ListOfRecepies>();
         List<Button> _btns = new List<Button>();
 
-        public FavouritesWindow()
+        private Recipe Request(object RecipeId)
         {
-            InitializeComponent();
+            return _request.GetRecipe(RecipeId.ToString()).Recipe;
+        }
+
+        async private void Print()
+        {
             var favourites = _repo.AuthorizedUser.Favourites;
+            WindowF.Cursor = Cursors.Wait;
             foreach (var favourite in favourites)
             {
-                var a = _request.GetRecipe(favourite.RecipeId).Recipe;
+                var task = Task.Factory.StartNew(Request, favourite.RecipeId);
+                
+                var result = await task;
+                
                 Grid grid = new Grid();
 
                 Rectangle rect = new Rectangle();
@@ -57,7 +66,7 @@ namespace Hleb
                     Image im = new Image();
                     BitmapImage img = new BitmapImage();
                     img.BeginInit();
-                    img.UriSource = new Uri(a.ImageURI, UriKind.RelativeOrAbsolute);
+                    img.UriSource = new Uri(result.ImageURI, UriKind.RelativeOrAbsolute);
                     img.CacheOption = BitmapCacheOption.OnLoad;
                     img.EndInit();
                     im.Source = img;
@@ -72,7 +81,7 @@ namespace Hleb
                 txt.Height = 60;
 
                 txt.VerticalAlignment = VerticalAlignment.Center;
-                txt.Text = a.Name;
+                txt.Text = result.Name;
                 txt.FontSize = 25;
                 txt.FontWeight = FontWeights.Bold;
                 stack2.Children.Add(txt);
@@ -88,13 +97,13 @@ namespace Hleb
                 TextBlock rating = new TextBlock();
                 rating.Height = 60;
                 rating.VerticalAlignment = VerticalAlignment.Center;
-                rating.Text = $"Rating - {Math.Round(a.Rating)}";
+                rating.Text = $"Rating - {Math.Round(result.Rating)}";
                 stack2.Children.Add(rating);
-             
+
                 grid.Children.Add(stack);
 
                 Button bt = new Button();
-                bt.Content = $"{a.Id}";
+                bt.Content = $"{result.Id}";
                 bt.VerticalAlignment = VerticalAlignment.Center;
                 bt.Height = 200;
                 bt.Opacity = 0;
@@ -107,6 +116,14 @@ namespace Hleb
 
                 Stack.Children.Add(grid);
             }
+        }
+
+        public FavouritesWindow()
+        {
+            InitializeComponent();
+            Print();
+            WindowF.Cursor = Cursors.Arrow;
+
         }
 
         private void Bt_Click(object sender, RoutedEventArgs e)
