@@ -39,13 +39,17 @@ namespace Hleb
         {
 
             var browserWindow = new BrowserWindow();
-
-            browserWindow.OnRedirected += _vkClient.AuthorizationRedirect;
-          
+            browserWindow.VkUser += VkReg;
             browserWindow.Show();
 
             browserWindow.NavigateTo(_vkClient.GetAuthUrl(), _vkClient.RedirectPage);
            
+        }
+
+        public void VkReg(User user)
+        {
+            textBoxname.Text = user.Name;
+            textBoxname2.Text = user.LastName;
         }
 
         private void ButtonHome_Click(object sender, RoutedEventArgs e)

@@ -29,8 +29,7 @@ namespace Hleb
         {
             InitializeComponent();
         }
-        public event Action<Uri> OnRedirected;
-        public event Action<string> Name;
+        public event Action<User> VkUser;
       
         string _redirectPage;
         private void GetUser(Uri uri)
@@ -53,8 +52,9 @@ namespace Hleb
                 vKAPI.AuthorizationRedirect(e.Uri);
                 //нужно вернуть имя этого юзера в текстбокс окна регистрации
                 var user = vKAPI.GetFriends();
-                Name?.Invoke(user.Name);
-                window.textBoxname.Text = user.Name;
+                VkUser?.Invoke(user);
+                //Name?.Invoke(user.Name);
+                //window.textBoxname.Text = user.Name;
             
                 Close();
 
