@@ -58,7 +58,9 @@ namespace Hleb
 
         private void Favourite_Click(object sender, RoutedEventArgs e)
         {
-
+            var fw = new FavouritesWindow();
+            fw.Show();
+            Close();
         }
     }
 }

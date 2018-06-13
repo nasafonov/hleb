@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hleb.Classes;
+using Hleb.Classes.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,23 @@ namespace Hleb
     /// </summary>
     public partial class FavouritesWindow : Window
     {
+        IRepository _repo = Factory.Instance.GetRepository();
+
         public FavouritesWindow()
         {
             InitializeComponent();
+            var favourites = _repo.AuthorizedUser.Favourites;
+        }
+        
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -108,6 +108,35 @@ namespace Hleb.Classes
             else
                 return false;
         }
+
+        public bool RemoveFavourite(string recipeId, int userId, string description)
+        {
+            if (string.IsNullOrWhiteSpace(recipeId))
+            {
+                MessageBox.Show("Please choose recipe");
+                return false;
+            }
+            _repo = GetJsRepository();
+            var favourite = _repo.Favourites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == userId);
+            if (favourite != null)
+            {
+                _repo.Favourites.Remove(favourite);
+                _repo.Save();
+                favourite = AuthorizedUser.Favourites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == userId);
+                AuthorizedUser.Favourites.Remove(favourite);
+                favourite = context.Favourites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == userId);
+                context.Favourites.Remove(favourite);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("There is not favourites like it. Check the currency of the inpuy data");
+                return false;
+            }
+        }
+
+
         public bool AddFavourite(string recipeId, int userId, string description)
         {
             if (string.IsNullOrWhiteSpace(recipeId))
@@ -124,6 +153,32 @@ namespace Hleb.Classes
             _repo.Save();
             return true;
         }
-        
+
+        public bool EditFavourite(string recipeId, int userId, string description)
+        {
+            if (string.IsNullOrWhiteSpace(recipeId))
+            {
+                MessageBox.Show("Please choose recipe");
+                return false;
+            }
+            _repo = GetJsRepository();
+            var favourite = _repo.Favourites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == userId);
+            if (favourite != null)
+            {
+                favourite.Description = description;
+                _repo.Save();
+                favourite = AuthorizedUser.Favourites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == userId);
+                favourite.Description = description;
+                favourite = context.Favourites.FirstOrDefault(f => f.RecipeId == recipeId && f.UserId == userId);
+                favourite.Description = description;
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("There is not favourites like it. Check the currency of the inpuy data");
+                return false;
+            }
+        }
     }
 }
