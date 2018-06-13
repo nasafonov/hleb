@@ -35,9 +35,10 @@ namespace Hleb.Classes
                 RecipeId = "2",
                 Id = 2
             };
-           // _repo.favouritesdata.ToList().Add(fav);
+            fav = _repo.Favourites.FirstOrDefault(f => f.RecipeId == "1" && f.UserId == 5);
+            fav.Description = "description";
+           // _repo.Favourites.Remove();
             _repo.Save();
-            //_repo.SaveUser(users);
         }
       
        

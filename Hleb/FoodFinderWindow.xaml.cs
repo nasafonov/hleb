@@ -1,4 +1,5 @@
 ﻿using Hleb.Classes.DTO;
+using Hleb.Classes.MainLogic;
 using Hleb.Classes.Model;
 using Newtonsoft.Json;
 using System;
@@ -27,25 +28,15 @@ namespace Hleb
         APIrequest _request = new API();
         List<string> _ingredients = new List<string>();
         List<Button> _btns = new List<Button>();
-        List<string> _ingr = new List<string>();
-        
+        List<string> _ingredientsData = new List<string>();
+        ILogic _logic = new Json();
 
 
         public FoodFinderWindow()
         {         
-            InitializeComponent();
-            List<Ingredients> ingr = new List<Ingredients>();
-
-            using (var sr = new StreamReader(@"../../../Hleb.Classes\Data\Ingredients.json"))
-            {
-                using (var reader = new JsonTextReader(sr))
-                {
-                    var serializer = new JsonSerializer();
-                    ingr = serializer.Deserialize<List<Ingredients>>(reader);
-                }
-            }
-            foreach (var ing in ingr)
-                _ingr.Add(ing.Name);
+            InitializeComponent();           
+            _ingredientsData = _logic.Reader(@"../../../Hleb.Classes\Data\Ingredients.json");           
+            
         }
         private void ButtonBread2_Click(object sender, RoutedEventArgs e)
         {
@@ -57,7 +48,7 @@ namespace Hleb
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
-
+            bool check = true;
             if (_btns.Count != 0)
             {
                 _btns = new List<Button>();
@@ -65,86 +56,79 @@ namespace Hleb
                 Scroll.Children.Clear();
                 st.Visibility = Visibility.Hidden;
             }
-            
-            
-            foreach (var rec in _request.Filter(_ingredients).ModelOfRecipes)
+            if (_ingredients.Count == 0)
             {
-
-
-                Grid grid = new Grid();
-
-                Rectangle rect = new Rectangle();
-                rect.Stroke = new SolidColorBrush(Colors.Black);
-                rect.Height = 200;
-                grid.Children.Add(rect);
-                
-                StackPanel stack = new StackPanel();
-                stack.Orientation = Orientation.Horizontal;
-                stack.Height = 190;
-
-                StackPanel stack2 = new StackPanel();
-
-                stack2.Height = 170;
-
-                using (var client = new HttpClient())
-                {
-                    Image im = new Image();
-                    BitmapImage img = new BitmapImage();
-                    img.BeginInit();
-                    img.UriSource = new Uri(rec.ImageURI, UriKind.RelativeOrAbsolute);
-                    img.CacheOption = BitmapCacheOption.OnLoad;
-                    img.EndInit();
-                    im.Source = img;
-                    im.VerticalAlignment = VerticalAlignment.Center;
-                    im.Height = 150;
-                    im.Width = 150;
-
-                    stack.Children.Add(im);
-                }
-                stack.Children.Add(stack2);
-                TextBlock txt = new TextBlock();
-                txt.Height = 60;
-                
-                txt.VerticalAlignment = VerticalAlignment.Center;
-                txt.Text = rec.Name;
-                txt.FontSize = 25;
-                txt.FontWeight = FontWeights.Bold;
-                stack2.Children.Add(txt);
-
-                TextBlock rating = new TextBlock();
-                rating.Height = 60;
-                rating.VerticalAlignment = VerticalAlignment.Center;
-                rating.Text = $"Rating - {rec.Rating}";
-                stack2.Children.Add(rating);
-
-                
-           
-
-                grid.Children.Add(stack);
-
-                
-
-                Button bt = new Button();
-                bt.Content = $"{rec.IDOfRecepies}";
-                bt.VerticalAlignment = VerticalAlignment.Center;
-                bt.Height = 200;
-                bt.Opacity = 0;
-                _btns.Add(bt);
-
-                bt.Click += Bt_Click;
-                bt.Cursor = Cursors.Hand;
-               
-                grid.Children.Add(bt);
-
-               
-                Scroll.Children.Add(grid);
-                
-               
-               
+                MessageBoxResult result = MessageBox.Show("Choose ingredients!");
+                st.Visibility = Visibility.Hidden;
+                _btns = new List<Button>();
+                _ingredients = new List<string>();
+                Scroll.Children.Clear();
+                check = false;
             }
 
+            if (check)
+                foreach (var rec in _request.Filter(_ingredients).ModelOfRecipes)
+                {
 
-            if (_btns.Count == 0)
+                    Grid grid = new Grid();
+
+                    Rectangle rect = new Rectangle();
+                    rect.Stroke = new SolidColorBrush(Colors.Black);
+                    rect.Height = 200;
+                    grid.Children.Add(rect);
+
+                    StackPanel stack = new StackPanel();
+                    stack.Orientation = Orientation.Horizontal;
+                    stack.Height = 190;
+
+                    StackPanel stack2 = new StackPanel();
+                    stack2.Height = 170;
+
+                    using (var client = new HttpClient())
+                    {
+                        Image im = new Image();
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.UriSource = new Uri(rec.ImageURI, UriKind.RelativeOrAbsolute);
+                        img.CacheOption = BitmapCacheOption.OnLoad;
+                        img.EndInit();
+                        im.Source = img;
+                        im.VerticalAlignment = VerticalAlignment.Center;
+                        im.Height = 150;
+                        im.Width = 150;
+
+                        stack.Children.Add(im);
+                    }
+                    stack.Children.Add(stack2);
+
+                    TextBlock txt = new TextBlock();
+                    txt.Height = 60;
+                    txt.VerticalAlignment = VerticalAlignment.Center;
+                    txt.Text = rec.Name;
+                    txt.FontSize = 25;
+                    txt.FontWeight = FontWeights.Bold;
+                    stack2.Children.Add(txt);
+
+                    TextBlock rating = new TextBlock();
+                    rating.Height = 60;
+                    rating.VerticalAlignment = VerticalAlignment.Center;
+                    rating.Text = $"Rating - {rec.Rating}";
+                    stack2.Children.Add(rating);
+                    grid.Children.Add(stack);
+
+                    Button bt = new Button();
+                    bt.Content = $"{rec.IDOfRecepies}";
+                    bt.VerticalAlignment = VerticalAlignment.Center;
+                    bt.Height = 200;
+                    bt.Opacity = 0;
+                    _btns.Add(bt);
+                    bt.Click += Bt_Click;
+                    bt.Cursor = Cursors.Hand;
+                    grid.Children.Add(bt);
+                    Scroll.Children.Add(grid);
+                }
+
+            if (_btns.Count == 0 && check)
             {
                 MessageBoxResult result = MessageBox.Show("No results found.");
                 st.Visibility = Visibility.Hidden;
@@ -155,27 +139,12 @@ namespace Hleb
             }
             else
             {
-                st.Visibility = Visibility.Visible;
+                if(check)
+                    st.Visibility = Visibility.Visible;                
             }
-
-
-     
-
-
-
-           
             
-
-            //Button but = new Button();
-            //but.Height = 40;
-            //but.VerticalAlignment = VerticalAlignment.Center;
-            //Scroll.Children.Add(but);
-            //but.Click +=    
-
         }
-
-        
-
+       
         private void Bt_Click(object sender, RoutedEventArgs e)
         {
             string id = null;
@@ -186,11 +155,8 @@ namespace Hleb
                     continue;
                 }
 
-            RecipeWindow rw = new RecipeWindow(id);
-            rw.Show();
-            
-            //throw new NotImplementedException();
-            
+            RecipeWindow rw = new RecipeWindow(id, true);
+            rw.Show();                            
         }
 
         private void Reset_Click(object sender, RoutedEventArgs e)
@@ -204,8 +170,6 @@ namespace Hleb
             Filtertxt.Text = "";
         }
 
-
-
         private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
             
@@ -216,8 +180,7 @@ namespace Hleb
             string query = (sender as TextBox).Text;
 
             if (query.Length == 0)
-            {
-                // Clear   
+            {                
                 resultStack.Children.Clear();
                 border.Visibility = System.Windows.Visibility.Collapsed;
             }
@@ -226,15 +189,12 @@ namespace Hleb
                 border.Visibility = System.Windows.Visibility.Visible;
             }
 
-            // Clear the list   
             resultStack.Children.Clear();
-
-            // Add the result   
-            foreach (var obj in _ingr)
+  
+            foreach (var obj in _ingredientsData)
             {
                 if (obj.ToLower().StartsWith(query.ToLower()))
-                {
-                    // The word starts with this... Autocomplete must work   
+                {                    
                     addItem(obj);
                     found = true;
                 }
@@ -247,16 +207,12 @@ namespace Hleb
         }
         public void addItem(string text)
         {
-            TextBlock block = new TextBlock();
-
-            // Add the text   
+            TextBlock block = new TextBlock(); 
             block.Text = text;
-
-            // A little style...   
             block.Margin = new Thickness(2, 3, 2, 3);
             block.Cursor = Cursors.Hand;
 
-            // Mouse events   
+  
             block.MouseLeftButtonUp += (sender, e) =>
             {
                 textBox.Text = (sender as TextBlock).Text;
@@ -274,7 +230,7 @@ namespace Hleb
                 b.Background = Brushes.Transparent;
             };
 
-            // Add to the panel   
+  
             resultStack.Children.Add(block);
         }
 
@@ -283,7 +239,6 @@ namespace Hleb
             Filtertxt.Text += $" {textBox.Text}";
             _ingredients.Add(textBox.Text);
             resultStack.Children.Clear();
-            //resultStack.Visibility = System.Windows.Visibility.Collapsed;
             bord.Visibility = Visibility.Collapsed;
             textBox.Text = "";
 
