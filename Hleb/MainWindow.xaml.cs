@@ -1,6 +1,12 @@
-﻿using Hleb.Classes.Repository;
+﻿using Hleb.Classes;
+using Hleb.Classes.Interfaces;
+using Hleb.Classes.Model;
+using Hleb.Classes.Repository;
+using Hleb.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,26 +27,38 @@ namespace Hleb
     /// </summary>
     public partial class MainWindow : Window
     {
+        IRepository _repo = Factory.Instance.GetRepository();
+
         public MainWindow()
         {
-           // var check = new JsRepository();
+            var check = new JsRepository();
             InitializeComponent();           
+        }
+
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if(_repo.Authorize(textBoxLogin.Text, textBoxPassword.ToString()))
+            {
+                UserWindow mw = new UserWindow();
+                mw.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("try input again");
+
         }
 
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            RegistrationWindow mw = new RegistrationWindow();
-            mw.ShowDialog();
-            Close();
+            RegistrationWindow rw = new RegistrationWindow();
+            rw.RegistrationFinished += Registration_Finished;
+            rw.Show();
         }
 
-        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        private void Registration_Finished()
         {
-            Hide();
-            UserWindow mw = new UserWindow();
-            mw.Show();
-            Close();
+            Show();
         }
     }
 }
