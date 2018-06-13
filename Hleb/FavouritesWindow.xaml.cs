@@ -1,6 +1,7 @@
 ﻿using Hleb.Classes;
 using Hleb.Classes.DTO;
 using Hleb.Classes.Interfaces;
+using Hleb.Classes.MainLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,13 @@ namespace Hleb
     {
         IRepository _repo = Factory.Instance.GetRepository();
         APIrequest _request = new API();
+        ILogic _logic = new Json();
         List<ListOfRecepies> rc = new List<ListOfRecepies>();
         List<Button> _btns = new List<Button>();
 
         public FavouritesWindow()
         {
             InitializeComponent();
-            //rc.Add(_request.GetRecipe(favourite.RecipeId));
             var favourites = _repo.AuthorizedUser.Favourites;
             foreach (var favourite in favourites)
             {
@@ -90,10 +91,7 @@ namespace Hleb
                 rating.Text = $"Rating - {Math.Round(a.Rating)}";
                 stack2.Children.Add(rating);
              
-
                 grid.Children.Add(stack);
-
-
 
                 Button bt = new Button();
                 bt.Content = $"{a.Id}";
@@ -107,11 +105,8 @@ namespace Hleb
 
                 grid.Children.Add(bt);
 
-
                 Stack.Children.Add(grid);
             }
-
-
         }
 
         private void Bt_Click(object sender, RoutedEventArgs e)

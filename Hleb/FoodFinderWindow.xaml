@@ -83,7 +83,7 @@ Storyboard.TargetProperty="Color" To="#FFC20E0E" />
             </Button.Template>
         </Button>
         <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.66" Grid.Column="2" Margin="97,163.2,138.6,236.4"/>
-        <ScrollViewer Name="st" Grid.Row="1" Background="#FFCDBF96" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "4" Visibility="Hidden">
+        <ScrollViewer Name="st" Grid.Row="1" Background="#FFCDBF96" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "5" Visibility="Hidden">
             <StackPanel Name="Scroll">
             </StackPanel>
         </ScrollViewer>
@@ -93,7 +93,7 @@ Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top">
                 <TextBlock Name="Filtertxt" Height="50" Width="350" Text="" FontSize="15" FontWeight="Bold" TextWrapping="Wrap"/>
                 <TextBox Width="412" Height="60" Padding="5, 3, 5, 3" FontSize="40" 
 KeyUp="TextBox_KeyUp" Name="textBox" Grid.Column="1" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="en-US"/>
-                <Border Width="298" Height="150" BorderBrush="Black" 
+                <Border Width="412" Height="170" BorderBrush="Black" 
 BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="2" Name="bord" Visibility="Hidden">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="resultStack"></StackPanel>
