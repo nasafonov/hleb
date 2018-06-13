@@ -34,9 +34,13 @@ namespace Hleb
 
         IRepository _repo = Factory.Instance.GetRepository();
 
-        public RecipeWindow(string id)
+        public RecipeWindow(string id, bool check)
         {
             InitializeComponent();
+            if (!check)
+            {
+                FavAdding.Visibility = Visibility.Collapsed;
+            }
             rc = _request.GetRecipe(id);
 
             using (var client = new HttpClient())

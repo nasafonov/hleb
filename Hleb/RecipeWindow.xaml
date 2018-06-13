@@ -39,7 +39,7 @@
         </ScrollViewer>
         
         <TextBlock Name="nametxt" Margin="5" FontFamily="Rockwell Nova" Text="Name" FontSize="38" FontWeight="Bold" TextAlignment="Center" Foreground="Black" TextWrapping="Wrap"/>
-        <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1">
+        <StackPanel Name="FavAdding" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1">
             <TextBlock Margin="5" Text="Description:"/>
             <TextBox x:Name="Description" Margin="5"/>
             <Button Name="FavButton"  Content=" Add to Recipe Book "  FontSize="30" FontWeight="Bold" Click="Clic_fav"/>

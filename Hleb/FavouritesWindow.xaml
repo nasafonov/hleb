@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
-        Title="FavouritesWindow" Height="450" Width="800">
+        Title="FavouritesWindow" Height="800" Width="1000">
     <Window.Background>
         <ImageBrush ImageSource="Images\щщ.jpg" />
     </Window.Background>
@@ -78,5 +78,10 @@
             </Button.Template>
         </Button>
         <TextBlock Text="Your Favourite recepies:" FontSize="40" Grid.ColumnSpan="2" TextAlignment="Center" Foreground="White" FontFamily="Rockwell Nova"></TextBlock>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <StackPanel Name="Stack">
+                
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

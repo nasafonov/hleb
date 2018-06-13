@@ -186,7 +186,7 @@ namespace Hleb
                     continue;
                 }
 
-            RecipeWindow rw = new RecipeWindow(id);
+            RecipeWindow rw = new RecipeWindow(id, true);
             rw.Show();
             
             //throw new NotImplementedException();
