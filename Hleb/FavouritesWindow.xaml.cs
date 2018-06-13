@@ -35,6 +35,7 @@ namespace Hleb
             var favourites = _repo.AuthorizedUser.Favourites;
             foreach (var favourite in favourites)
             {
+                var a = _request.GetRecipe(favourite.RecipeId).Recipe;
                 Grid grid = new Grid();
 
                 Rectangle rect = new Rectangle();
@@ -55,7 +56,7 @@ namespace Hleb
                     Image im = new Image();
                     BitmapImage img = new BitmapImage();
                     img.BeginInit();
-                    img.UriSource = new Uri(_request.GetRecipe(favourite.RecipeId).Recipe.ImageURI, UriKind.RelativeOrAbsolute);
+                    img.UriSource = new Uri(a.ImageURI, UriKind.RelativeOrAbsolute);
                     img.CacheOption = BitmapCacheOption.OnLoad;
                     img.EndInit();
                     im.Source = img;
@@ -70,7 +71,7 @@ namespace Hleb
                 txt.Height = 60;
 
                 txt.VerticalAlignment = VerticalAlignment.Center;
-                txt.Text = _request.GetRecipe(favourite.RecipeId).Recipe.Name;
+                txt.Text = a.Name;
                 txt.FontSize = 25;
                 txt.FontWeight = FontWeights.Bold;
                 stack2.Children.Add(txt);
@@ -86,7 +87,7 @@ namespace Hleb
                 TextBlock rating = new TextBlock();
                 rating.Height = 60;
                 rating.VerticalAlignment = VerticalAlignment.Center;
-                rating.Text = $"Rating - {Math.Round(_request.GetRecipe(favourite.RecipeId).Recipe.Rating)}";
+                rating.Text = $"Rating - {Math.Round(a.Rating)}";
                 stack2.Children.Add(rating);
              
 
@@ -95,7 +96,7 @@ namespace Hleb
 
 
                 Button bt = new Button();
-                bt.Content = $"{_request.GetRecipe(favourite.RecipeId).Recipe.Id}";
+                bt.Content = $"{a.Id}";
                 bt.VerticalAlignment = VerticalAlignment.Center;
                 bt.Height = 200;
                 bt.Opacity = 0;
