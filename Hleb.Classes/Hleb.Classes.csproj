@@ -55,7 +55,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Checker.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="DTO\API.cs" />
     <Compile Include="DTO\CurrentUser.cs" />

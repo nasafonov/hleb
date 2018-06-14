@@ -31,11 +31,7 @@ namespace Hleb
 
         public MainWindow()
         {
-            //var check = new JsRepository();
-            //var check = new Checker();
             InitializeComponent();
-            
-
         }
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
@@ -50,8 +46,6 @@ namespace Hleb
                 MessageBox.Show("try input again");
 
         }
-
-    
 
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
