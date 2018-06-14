@@ -253,6 +253,7 @@ namespace Hleb
             bord.Visibility = Visibility.Collapsed;
             textBox.Text = "";
 
+
         }
     }
 }

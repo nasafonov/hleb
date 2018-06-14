@@ -44,12 +44,15 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checker.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="Factory.cs" />
     <Compile Include="Helpers\PasswordHelpers.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="MainLogic\AddPhoto.cs" />
     <Compile Include="MainLogic\AlgorithmRecipe.cs" />
     <Compile Include="Migrations\201806121422476_Install.cs" />
     <Compile Include="Migrations\201806121422476_Install.Designer.cs">
@@ -93,7 +97,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="Data\Ingredients.json" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\VK.png" />
