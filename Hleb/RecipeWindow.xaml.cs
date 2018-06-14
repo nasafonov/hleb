@@ -31,6 +31,7 @@ namespace Hleb
         WebBrowser wb = new WebBrowser();
 
         ListOfRecepies rc = new ListOfRecepies();
+        public event Action EditRemove;
 
         IRepository _repo = Factory.Instance.GetRepository();
 
@@ -96,12 +97,14 @@ namespace Hleb
         {
             if (_repo.RemoveFavourite(rc.Recipe.Id, _repo.AuthorizedUser.Id))
                 MessageBox.Show("Removed");
+            EditRemove?.Invoke();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             if (_repo.EditFavourite(rc.Recipe.Id, _repo.AuthorizedUser.Id, Description.Text))
                 MessageBox.Show("Editeded");
+            EditRemove?.Invoke();
         }
     }
 }
