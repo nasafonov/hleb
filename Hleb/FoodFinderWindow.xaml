@@ -100,7 +100,7 @@ SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
             <RowDefinition Height="auto"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Button Name="ButtonCatalog" Margin="4" Cursor="Hand" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click" Style="{DynamicResource DefaultButtonStyle}" >
+        <Button Name="ButtonCatalog" BorderThickness="0" Margin="4" Cursor="Hand" Height="80" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonBread2_Click" Style="{DynamicResource DefaultButtonStyle}" >
             <Button.Background>
                 <ImageBrush ImageSource="Images/хлеб3.png" />
             </Button.Background>
@@ -161,7 +161,7 @@ Storyboard.TargetProperty="Color" To="#FFC20E0E" />
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.66" Grid.Column="2" Margin="97,163.2,138.6,236.4"/>
+        <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="367" Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.66" Grid.Column="2" Margin="97,185.2,121.6,249.4" Height="187"/>
         <ScrollViewer Name="st" Grid.Row="1" Background="#FFF7AB76" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "5" Visibility="Hidden">
             <StackPanel Name="Scroll">
             </StackPanel>
