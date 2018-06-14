@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -68,5 +69,25 @@ namespace Hleb
             Close();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                fileDialog.ShowDialog();
+                                //создание диалогового окна для выбора файла
+                fileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"; //формат загружаемого файла
+                string way = fileDialog.FileName;
+                Image img = new Image();
+                ImageSourceConverter imgs = new ImageSourceConverter();
+              
+                userPhoto.SetValue(Image.SourceProperty, imgs.ConvertFromString(way));
+            }
+                       catch
+           {
+                System.Windows.Forms.MessageBox.Show("Something Went Wrong");
+                           }
+
+            }
     }
 }
