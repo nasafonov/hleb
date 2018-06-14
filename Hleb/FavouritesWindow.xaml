@@ -82,7 +82,7 @@
         </Button>
         
         <TextBlock Text="Your Favourite recepies:" FontSize="50" Grid.ColumnSpan="2" Grid.Column="1" TextAlignment="Center" Foreground="White" FontFamily="Rockwell Nova" Margin="0,0,163.6,0"></TextBlock>
-        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="30,5">
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="30,5" Background="#FFF7AB76">
             <StackPanel Name="Stack">
             </StackPanel>
         </ScrollViewer>
