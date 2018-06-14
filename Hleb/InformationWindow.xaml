@@ -103,7 +103,8 @@ SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
         <ScrollViewer HorizontalScrollBarVisibility = "Auto" VerticalScrollBarVisibility = "Auto" Grid.RowSpan="6" Grid.ColumnSpan="2" Grid.Row="1" Margin="5">
 
             <TextBlock Width="490" TextWrapping = "Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="40"
-              Text="ТЕКСТ ПРО НАС, КАКАЯ У НАС КРУТАЯ ПРОГА ДА И ВООБЩЕ КАКИЕ МЫ КРУТЫЕ, А ЕЩЕ Я ПОМЕНЯЛ ЭТО ОКНО, ОБРАТИТЕ ВНИМАНИЕ" Foreground="White"/>
+              Text="Приложение 'Хлеб' от студентов 1 курса ВШЭ БИ 2018. Трушникова Анна, Илья Бузько, Низов Егор, Сафонов Николай.
+" Foreground="White"/>
         </ScrollViewer>
 
     </Grid>

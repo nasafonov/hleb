@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hleb.Classes;
+using Hleb.Classes.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,12 @@ namespace Hleb
     /// </summary>
     public partial class UserWindow : Window
     {
+        IRepository _repo = Factory.Instance.GetRepository();
         public UserWindow()
         {
             InitializeComponent();
+            TextboxName.Text = _repo.AuthorizedUser.Name;
+            TextboxSurname.Text = _repo.AuthorizedUser.LastName;
         }
 
         private void ButtonHome2_Click(object sender, RoutedEventArgs e)

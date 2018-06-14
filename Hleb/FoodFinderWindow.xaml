@@ -162,7 +162,7 @@ Storyboard.TargetProperty="Color" To="#FFC20E0E" />
             </Button.Template>
         </Button>
         <Image Source="Images/хлеб2.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Grid.Row="1" Grid.ColumnSpan="2" Opacity="0.66" Grid.Column="2" Margin="97,163.2,138.6,236.4"/>
-        <ScrollViewer Name="st" Grid.Row="1" Background="#FFCDBF96" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "5" Visibility="Hidden">
+        <ScrollViewer Name="st" Grid.Row="1" Background="#FFF7AB76" Margin="30" VerticalAlignment="Center" Grid.ColumnSpan= "5" Visibility="Hidden">
             <StackPanel Name="Scroll">
             </StackPanel>
         </ScrollViewer>
