@@ -46,5 +46,6 @@
                 </Button>
             </StackPanel>
         </StackPanel>
+        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="194" Height="185" Margin="76,55,74,180" Background="Transparent" />
     </Grid>
 </Window>
