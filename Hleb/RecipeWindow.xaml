@@ -14,15 +14,17 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="1.1*"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="111*"/>
             <RowDefinition Height="377*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="182*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Image Name="Img" Margin="10,5.6,10,12" Grid.Row="1"/>
-        <StackPanel  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="111" Width="224" Margin="172,48,172,23.4">
+        <StackPanel  Grid.Row="3" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="111" Width="224" Margin="5">
             <TextBlock FontFamily="Rockwell Nova" Cursor="Hand" Margin="5" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">
             
             <Hyperlink Name="Hyper"  RequestNavigate="Hyperlink_RequestNavigate" FontSize="40" >Click Hear</Hyperlink>
@@ -31,7 +33,7 @@
         </StackPanel>
 
         <TextBlock  Grid.Column="1" Text="Ingredients" FontFamily="Rockwell Nova" FontSize="45" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Foreground="White" Margin="0,0,-0.4,4.4" />
-        <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="20,15.6,19.6,22" Foreground="White" FontSize="40" FontWeight="Bold">
+        <ScrollViewer Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,15.6,19.6,22" Foreground="White" FontSize="40" FontWeight="Bold">
             <StackPanel Name="Stack" >
                 <TextBlock />
                 <TextBlock Height="25"/>
@@ -39,10 +41,68 @@
         </ScrollViewer>
 
         <TextBlock Name="nametxt" Margin="5,5,5,9.4"  FontFamily="Rockwell Nova" Text="Name" FontSize="36" FontWeight="Bold" TextAlignment="Center" Foreground="White" TextWrapping="Wrap"/>
-        <StackPanel Name="FavAdding" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Margin="152,1,151.6,0.4" Grid.RowSpan="2" Height="181" Width="322">
+        <StackPanel  VerticalAlignment="Bottom"  Grid.Row="3" Grid.Column="1" Margin="5"  Width="322">
             <TextBlock  Text=" Description:" Foreground="White" FontSize="30" FontWeight="Bold" />
             <TextBox x:Name="Description" Height="40" Margin="9" FontSize="25"/>
-            <Button Name="FavButton" Cursor="Hand" Margin="9"  Content=" Add to Recipe Book "  FontSize="30" FontWeight="Bold" Foreground="White" Click="Clic_fav" Height="66">
+        </StackPanel>
+        <Button Name="FavAdding" Cursor="Hand" Width="322" Margin="15" Grid.Row="4" Grid.Column="1"  Content=" Add to Recipe Book "  FontSize="30" FontWeight="Bold" Foreground="White" Click="Clic_fav" Height="66">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                        </Border.Background>
+                        <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <StackPanel x:Name="WorkWithFavourite" VerticalAlignment="Bottom" Margin="5" Grid.Row="3" Grid.RowSpan="2" Grid.Column="2">
+            <Button x:Name="Edit"  Content="Edit" Margin="9" Cursor="Hand" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30"  VerticalAlignment="Top" BorderBrush="#FFDC0D0D"  Foreground="White" Click="Edit_Click"  >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
+                            <Border.Background>
+                                <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
+                            </Border.Background>
+                            <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState Name="Normal">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="Remove"  Content="Remove" Margin="9" Cursor="Hand" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30"  BorderBrush="#FFDC0D0D"  Foreground="White" Click="Remove_Click" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">

@@ -39,7 +39,13 @@ namespace Hleb
             InitializeComponent();
             if (!check)
             {
+                WorkWithFavourite.Visibility = Visibility.Visible;
                 FavAdding.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                WorkWithFavourite.Visibility = Visibility.Collapsed;
+                FavAdding.Visibility = Visibility.Visible;
             }
             rc = _request.GetRecipe(id);
 
@@ -84,6 +90,18 @@ namespace Hleb
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (_repo.RemoveFavourite(rc.Recipe.Id, _repo.AuthorizedUser.Id))
+                MessageBox.Show("Removed");
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (_repo.EditFavourite(rc.Recipe.Id, _repo.AuthorizedUser.Id, Description.Text))
+                MessageBox.Show("Editeded");
         }
     }
 }

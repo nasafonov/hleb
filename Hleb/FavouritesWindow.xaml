@@ -11,37 +11,23 @@
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <Rectangle Margin="2" 
-SnapsToDevicePixels="true" 
-Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
-StrokeDashArray="1 2" 
-StrokeThickness="1" />
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeDashArray="1 2" StrokeThickness="1" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <SolidColorBrush x:Key="Button.Static.Background" 
-Color="#FFDDDDDD" />
-        <SolidColorBrush x:Key="Button.Static.Border" 
-Color="#FF707070" />
-        <SolidColorBrush x:Key="Button.MouseOver.Background" 
-Color="#FFBEE6FD" />
-        <SolidColorBrush x:Key="Button.MouseOver.Border" 
-Color="#FF3C7FB1" />
-        <SolidColorBrush x:Key="Button.Pressed.Background" 
-Color="#FFC4E5F6" />
-        <SolidColorBrush x:Key="Button.Pressed.Border" 
-Color="#FF2C628B" />
-        <SolidColorBrush x:Key="Button.Disabled.Background" 
-Color="#FFF4F4F4" />
-        <SolidColorBrush x:Key="Button.Disabled.Border" 
-Color="#FFADB2B5" />
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" 
-Color="#FF838383" />
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
 
-        <Style x:Key="DefaultButtonStyle" 
-TargetType="{x:Type Button}">
+        <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
@@ -53,18 +39,9 @@ TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" 
-Background="{TemplateBinding Background}" 
-BorderBrush="{TemplateBinding BorderBrush}" 
-BorderThickness="{TemplateBinding BorderThickness}" 
-SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" 
-Margin="{TemplateBinding Padding}" 
-HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-Focusable="False" 
-RecognizesAccessKey="True" 
-SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                Focusable="False" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -97,71 +74,15 @@ SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Button Name="ButtonCatalog" Margin="4" Height="80" Cursor="Hand" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonCatalog3_Click" Style="{DynamicResource DefaultButtonStyle}" >
             <Button.Background>
                 <ImageBrush ImageSource="Images/хлеб3.png" />
             </Button.Background>
         </Button>
-        <Button x:Name="Edit"  Content="Edit" Margin="9" Cursor="Hand" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" BorderBrush="#FFDC0D0D"  Foreground="White" Click="Edit_Click"  >
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
-                        <Border.Background>
-                            <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
-                        </Border.Background>
-                        <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="CommonStates">
-                                <VisualState Name="MouseOver">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState Name="Normal">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="Remove"  Content="Remove" Margin="9" Cursor="Hand" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" Grid.Column="2" Grid.Row="1" BorderBrush="#FFDC0D0D"  Foreground="White" Click="Remove_Click" >
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
-                        <Border.Background>
-                            <SolidColorBrush x:Name="BorderColor" Color="sc#1, 0.423267663, 0.318546772, 0.152926147"/>
-                        </Border.Background>
-                        <ContentControl Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="CommonStates">
-                                <VisualState Name="MouseOver">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFF06624" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState Name="Normal">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#FFD63E0B" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+        
         <TextBlock Text="Your Favourite recepies:" FontSize="50" Grid.ColumnSpan="2" Grid.Column="1" TextAlignment="Center" Foreground="White" FontFamily="Rockwell Nova" Margin="0,0,163.6,0"></TextBlock>
-        <ScrollViewer Background="#FFF7AB76" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="0,0,353.6,0.4">
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="30,5">
             <StackPanel Name="Stack">
             </StackPanel>
         </ScrollViewer>
