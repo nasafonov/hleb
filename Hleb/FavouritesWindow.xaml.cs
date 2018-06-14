@@ -137,9 +137,14 @@ namespace Hleb
                 }
 
             RecipeWindow rw = new RecipeWindow(id, false);
+            rw.EditRemove += EditRemoveFinished;
             rw.Show();
         }
-
+        private void EditRemoveFinished()
+        {
+            Stack.Children.Clear();
+            Print();
+        }
 
         private void ButtonCatalog3_Click(object sender, RoutedEventArgs e)
         {

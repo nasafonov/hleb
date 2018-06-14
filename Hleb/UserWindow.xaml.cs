@@ -80,7 +80,7 @@ namespace Hleb
                 string way = fileDialog.FileName;
                 Image img = new Image();
                 ImageSourceConverter imgs = new ImageSourceConverter();
-                userPhoto.Source = null;
+              
                 userPhoto.SetValue(Image.SourceProperty, imgs.ConvertFromString(way));
             }
                        catch
