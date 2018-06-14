@@ -109,7 +109,7 @@ namespace Hleb.Classes
                 return false;
         }
 
-        public bool RemoveFavourite(string recipeId, int userId, string description)
+        public bool RemoveFavourite(string recipeId, int userId)
         {
             if (string.IsNullOrWhiteSpace(recipeId))
             {

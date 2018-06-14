@@ -6,11 +6,90 @@
         xmlns:local="clr-namespace:Hleb"
         mc:Ignorable="d"
         Title="Registration" Height="530" Width="700" MinHeight="530" MinWidth="700">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" 
+SnapsToDevicePixels="true" 
+Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
+StrokeDashArray="1 2" 
+StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <SolidColorBrush x:Key="Button.Static.Background" 
+Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" 
+Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" 
+Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" 
+Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" 
+Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" 
+Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" 
+Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" 
+Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" 
+Color="#FF838383" />
+
+        <Style x:Key="DefaultButtonStyle" 
+TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" 
+Background="{TemplateBinding Background}" 
+BorderBrush="{TemplateBinding BorderBrush}" 
+BorderThickness="{TemplateBinding BorderThickness}" 
+SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" 
+Margin="{TemplateBinding Padding}" 
+HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+Focusable="False" 
+RecognizesAccessKey="True" 
+SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="Images\ll.jpg" />
     </Window.Background>
     <Grid>
-        <Button Name="ButtonHome" BorderThickness="0" Margin="9" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonHome_Click" Foreground="White" BorderBrush="White" >
+        <Button Name="ButtonHome" BorderThickness="0" Style="{DynamicResource DefaultButtonStyle}" Cursor="Hand" Margin="9" Height="70" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ButtonHome_Click" Foreground="White" BorderBrush="White" >
             <Button.Background>
                 <ImageBrush ImageSource="Images\Home.png"/>
             </Button.Background>
@@ -27,7 +106,7 @@
             <PasswordBox Name="textBoxpassword" Width="400" Height="50" FontSize="36"/>
 
             <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center" Width="360">
-                <Button x:Name="RegistrationButton" Content="Registration" Margin="9" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" BorderBrush="#FFDC0D0D" Foreground="White" Click="RegistrationButton_Click" >
+                <Button x:Name="RegistrationButton" Content="Registration" Cursor="Hand" Margin="9" FontFamily="Rockwell Nova" Height="63" Width="200" FontSize="30" BorderBrush="#FFDC0D0D" Foreground="White" Click="RegistrationButton_Click" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="25" BorderBrush="White" BorderThickness="2"   Width="Auto" Margin="0,0,2,0">
@@ -56,7 +135,7 @@
                     </Button.Template>
                 </Button>
                 <TextBlock Text="Or" VerticalAlignment="Center" FontSize="30" />
-                <Button Name="ButtonVK" BorderThickness="0" Height="67" Width="67" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonVK_Click" Margin="9" >
+                <Button Name="ButtonVK" BorderThickness="0" Style="{DynamicResource DefaultButtonStyle}" Cursor="Hand" Height="67" Width="67" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonVK_Click" Margin="9" >
                     <Button.Background>
                         <ImageBrush ImageSource="Images\VK.png" />
                     </Button.Background>
@@ -64,7 +143,7 @@
             </StackPanel>
         </StackPanel>
 
-        
+
 
     </Grid>
 </Window>

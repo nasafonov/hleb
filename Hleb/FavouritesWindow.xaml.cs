@@ -140,21 +140,6 @@ namespace Hleb
             rw.Show();
         }
 
-        private void Remove_Click(object sender, RoutedEventArgs e)
-        {
-            string recipeId = "";
-            string description = "";
-            if (_repo.RemoveFavourite(recipeId, _repo.AuthorizedUser.Id, description))
-                MessageBox.Show("Removed");
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            string recipeId = "";
-            string description = "";
-            if (_repo.EditFavourite(recipeId, _repo.AuthorizedUser.Id, description))
-                MessageBox.Show("Editeded");
-        }
 
         private void ButtonCatalog3_Click(object sender, RoutedEventArgs e)
         {
