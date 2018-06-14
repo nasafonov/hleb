@@ -43,7 +43,7 @@
         <TextBlock Name="nametxt" Margin="5,5,5,9.4"  FontFamily="Rockwell Nova" Text="Name" FontSize="36" FontWeight="Bold" TextAlignment="Center" Foreground="White" TextWrapping="Wrap"/>
         <StackPanel  VerticalAlignment="Bottom"  Grid.Row="3" Grid.Column="1" Margin="5"  Width="322">
             <TextBlock  Text=" Description:" Foreground="White" FontSize="30" FontWeight="Bold" />
-            <TextBox x:Name="Description" Height="40" Margin="9" FontSize="25"/>
+            <TextBox x:Name="Description" Height="40" Margin="9" FontSize="25" VerticalContentAlignment="Center" />
         </StackPanel>
         <Button Name="FavAdding" Cursor="Hand" Width="322" Margin="15" Grid.Row="4" Grid.Column="1"  Content=" Add to Recipe Book "  FontSize="30" FontWeight="Bold" Foreground="White" Click="Clic_fav" Height="66">
             <Button.Template>
